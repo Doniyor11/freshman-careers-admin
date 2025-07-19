@@ -1,0 +1,41 @@
+name: CI/CD for Freshman Careers
+
+on:
+  push:
+    branches:
+      - dev   # Запускается на push в основную ветку
+  pull_request:
+    branches:
+      - dev   # Запускается при создании pull request в основную ветку
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout вашего кода
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Установить Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Убедитесь, что используете нужную версию Node.js
+
+      # Установить зависимости
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Запустить сборку проекта
+      - name: Build Next.js app
+        run: |
+          npm run build
+
+      # Деплой на сервер
+      - name: Deploy to server
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }} user@91.228.154.238 "cd /path/to/project && git pull && npm install && npm run start"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

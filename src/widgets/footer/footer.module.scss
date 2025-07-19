@@ -1,0 +1,64 @@
+.footerWrapper {
+	border-radius: 1rem 1rem 0 0;
+	background: #29323c;
+	position: relative;
+	padding: 5rem 4.5rem;
+	overflow: hidden;
+
+	&::before {
+		content: "Internship";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -10%;
+		width: 100%;
+		text-align: center;
+		font-size: 12rem;
+		color: rgba(255, 255, 255, 0.05);
+		font-weight: 1000;
+		text-transform: uppercase;
+		pointer-events: none;
+		user-select: none;
+		z-index: 0;
+		line-height: normal;
+		letter-spacing: 1.2rem;
+		opacity: 0.1;
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0) 20.78%,
+			#fff 76.12%
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+}
+
+.footerTitle {
+	color: #fff;
+	text-align: center;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.75rem;
+	text-transform: uppercase;
+	margin-bottom: 0.75rem;
+}
+
+.footerDescription {
+	color: #fff;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5rem;
+	cursor: pointer;
+}
+
+.footerInfo {
+	color: #fff;
+	text-align: center;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5rem;
+}

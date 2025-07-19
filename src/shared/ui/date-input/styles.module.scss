@@ -1,0 +1,28 @@
+.input {
+	label {
+		color: #fff;
+		font-family: "Inter", sans-serif;
+		font-size: 1rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 1.25rem;
+		letter-spacing: -0.02rem;
+		margin-bottom: 0.5rem;
+	}
+
+	input {
+		border-radius: 0.5rem;
+		border: 1px solid #e2eaff;
+		background: #fafbff;
+		height: 3.5rem;
+
+		&::placeholder {
+			color: #848f98;
+			font-size: 1rem;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 1.25rem;
+			letter-spacing: -0.02rem;
+		}
+	}
+}

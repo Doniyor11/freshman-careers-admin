@@ -1,0 +1,62 @@
+.root {
+	position: relative;
+	border-radius: 0.5rem;
+	background: #fafbff;
+	width: 100%;
+}
+
+.label {
+	position: absolute;
+	z-index: 1;
+	pointer-events: none;
+	top: 20px;
+	left: 1rem;
+	color: #848f98 !important;
+	font-size: 1rem !important;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.25rem;
+	letter-spacing: -0.02rem;
+	transition:
+		color 100ms ease,
+		transform 100ms ease,
+		font-size 100ms ease;
+
+	&[data-floating] {
+		transform: translateY(-20px);
+		color: #848f98 !important;
+		font-size: 1rem !important;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 1.25rem;
+		letter-spacing: -0.02rem;
+		top: 30px;
+	}
+}
+
+.input {
+	width: 100%;
+	height: 4rem;
+	padding: 1.375rem 1rem;
+	background: #fafbff;
+	color: #000;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5rem;
+	letter-spacing: -0.025rem;
+}
+
+.inputFloating {
+	padding: 1.375rem 1rem 0.5rem 1rem;
+}
+
+.eyeButton {
+	background: transparent;
+	border: none;
+	outline: none;
+	padding-right: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

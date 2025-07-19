@@ -1,0 +1,197 @@
+.myProfileWrapper {
+	padding: 3rem 0 4rem 0;
+}
+
+.backText {
+	color: #004b84;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.25rem;
+	letter-spacing: -0.02rem;
+	cursor: pointer;
+}
+
+.title {
+	color: #001c31;
+	text-align: center;
+	font-size: 2.5rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 3rem;
+}
+
+.card {
+	border-radius: 0.5rem;
+	background: #fff;
+	padding: 1.5rem;
+}
+
+.cardTitle {
+	color: #000;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.25rem;
+	letter-spacing: -0.02rem;
+}
+
+.label {
+	color: #848f98;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.25rem;
+	letter-spacing: 0.0175rem;
+}
+
+.imageWrapper {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.titleBig {
+	color: #001c31;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5rem;
+
+	&.textOverflow {
+		text-overflow: ellipsis;
+		width: 100%;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+}
+
+.documentList {
+	padding: 0.75rem 0;
+	border-bottom: 1px solid #e2eaff;
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.documentTitle {
+	color: #001c31;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.25rem;
+	letter-spacing: 0.02rem;
+}
+
+.documentLabel {
+	color: #848f98;
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1rem;
+}
+
+.internshipsCardWrapper {
+	border-radius: 0.5rem;
+	background: #fff;
+}
+
+.internshipsCardHead {
+	border-bottom: 1px solid #f5f5f5;
+}
+
+.internshipsCardContent {
+	padding: 1.5rem;
+
+	.companyName {
+		color: #001c31;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 20px;
+		letter-spacing: 0.32px;
+	}
+}
+
+.internshipsCardIcon {
+	width: 2rem;
+	height: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+
+.internshipsCardDay {
+	color: #848f98;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1rem;
+	font-family: "Inter", sans-serif;
+}
+
+.internshipsCardTitle {
+	color: #001c31;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5rem;
+}
+
+.status {
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1rem;
+}
+
+.internshipsCardDescription {
+	overflow: hidden;
+	color: #848f98;
+	text-overflow: ellipsis;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.25rem;
+
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+
+.internshipsCardDate {
+	color: #001c31;
+	font-family: "Inter", sans-serif;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.25rem;
+	letter-spacing: 0.0175rem;
+}
+
+.buttonOutline{
+	color: #FF6A00;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.25rem;
+	border: 1px solid #FF6A00;
+	&:hover {
+		background-color: #FF6A00;
+		color: #fff;
+	}
+}

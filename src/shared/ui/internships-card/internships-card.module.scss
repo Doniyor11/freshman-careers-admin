@@ -1,0 +1,90 @@
+.internshipsCardWrapper {
+	border-radius: 0.5rem;
+	background: #fff;
+}
+
+.internshipsCardImage {
+	height: 16rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.internshipsCardContent {
+	padding: 1.5rem;
+
+	.companyName {
+		color: #001c31;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 20px;
+		letter-spacing: 0.32px;
+	}
+}
+
+.internshipsCardIcon {
+	width: 2rem;
+	height: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+
+.internshipsCardDay {
+	color: #848f98;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1rem;
+	font-family: "Inter", sans-serif;
+}
+
+.internshipsCardTitle {
+	color: #001c31;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5rem;
+}
+
+.internshipsCardDescription {
+	overflow: hidden;
+	color: #848f98;
+	text-overflow: ellipsis;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.25rem;
+
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+
+.internshipsCardDate {
+	color: #001c31;
+	font-family: "Inter", sans-serif;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.25rem;
+	letter-spacing: 0.0175rem;
+}
+
+.internshipsCardActionIcon {
+	width: 2.75rem;
+	height: 2.75rem;
+	border-radius: 0.5rem;
+	border: 1px solid #004b84;
+}
