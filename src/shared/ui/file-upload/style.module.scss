@@ -1,112 +1,110 @@
-
-
 .title {
-  color: #000;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.25rem;
-  letter-spacing: -0.02rem;
-  margin-bottom: 1.5rem;
+	color: #000;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.25rem;
+	letter-spacing: -0.02rem;
+	margin-bottom: 1.5rem;
 }
 
 .imageArea {
-  border-radius: 0.25rem;
-  border: 1px solid #E2EAFF;
-  padding: 40px 20px;
-  margin-bottom: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 25rem;
+	border-radius: 0.25rem;
+	border: 1px solid #e2eaff;
+	padding: 40px 20px;
+	margin-bottom: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 25rem;
 }
 
 .placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .placeholderIcon {
-  width: 80px;
-  height: 80px;
-  color: #c7d2fe;
-  stroke-width: 1;
+	width: 80px;
+	height: 80px;
+	color: #c7d2fe;
+	stroke-width: 1;
 }
 
 .hiddenInput {
-  display: none;
+	display: none;
 }
 
 .imagePreview {
-  position: relative;
-  max-width: 100%;
-  max-height: 200px;
+	position: relative;
+	max-width: 100%;
+	max-height: 200px;
 }
 
 .previewImage {
-  max-width: 100%;
-  max-height: 200px;
-  object-fit: contain;
-  border-radius: 4px;
+	max-width: 100%;
+	max-height: 200px;
+	object-fit: contain;
+	border-radius: 4px;
 }
 
 .removeButton {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: #ef4444;
-  color: white;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background-color: #ef4444;
+	color: white;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
+	font-weight: bold;
+	transition: background-color 0.2s ease;
 }
 
 .removeButton:hover {
-  background-color: #dc2626;
+	background-color: #dc2626;
 }
 
 .removeButton:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+	opacity: 0.5;
+	cursor: not-allowed;
 }
 
 .uploadingText {
-  margin-top: 12px;
-  font-size: 14px;
-  color: #6b7280;
+	margin-top: 12px;
+	font-size: 14px;
+	color: #6b7280;
 }
 
 .status {
-  margin-top: 12px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 14px;
-  text-align: center;
+	margin-top: 12px;
+	padding: 8px 12px;
+	border-radius: 4px;
+	font-size: 14px;
+	text-align: center;
 }
 
 .success {
-  background-color: #dcfce7;
-  color: #166534;
-  border: 1px solid #bbf7d0;
+	background-color: #dcfce7;
+	color: #166534;
+	border: 1px solid #bbf7d0;
 }
 
 .error {
-  background-color: #fef2f2;
-  color: #dc2626;
-  border: 1px solid #fecaca;
+	background-color: #fef2f2;
+	color: #dc2626;
+	border: 1px solid #fecaca;
 }
 
 .addButton:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+	opacity: 0.6;
+	cursor: not-allowed;
 }

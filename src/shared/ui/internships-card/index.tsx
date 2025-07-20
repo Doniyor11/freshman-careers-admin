@@ -95,7 +95,7 @@ export const InternshipsCard: React.FC<InternshipsCardProps> = ({
 						bg={"#004C84"}
 						flex={"auto"}
 						onClick={onResponses}
-						h={'2.75rem'}
+						h={"2.75rem"}
 					>
 						Responses
 					</FilledButton>
