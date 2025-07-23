@@ -11,7 +11,7 @@ const PublicRoute = ({ children }: { children: ReactNode }) => {
 
 	useEffect(() => {
 		if (token) {
-			router.push("/profile")
+			router.push("/")
 		}
 	}, [token, router])
 

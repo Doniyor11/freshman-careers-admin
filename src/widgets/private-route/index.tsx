@@ -3,6 +3,8 @@ import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 import { ReactNode, useEffect } from "react"
 
+import { Footer, Navbar } from "@/widgets"
+
 import { TOKEN } from "@/shared/constants/env.ts"
 
 const PrivateRoute = ({ children }: { children: ReactNode }) => {
@@ -12,7 +14,7 @@ const PrivateRoute = ({ children }: { children: ReactNode }) => {
 	useEffect(() => {
 		if (!token) {
 			Cookies.remove(TOKEN.AUTH_TOKEN)
-			router.push("/main")
+			router.push("/login")
 		}
 	}, [token, router])
 
@@ -24,7 +26,13 @@ const PrivateRoute = ({ children }: { children: ReactNode }) => {
 		)
 	}
 
-	return <>{children}</>
+	return (
+		<>
+			<Navbar />
+			{children}
+			<Footer />
+		</>
+	)
 }
 
 export default PrivateRoute

@@ -1,4 +1,6 @@
-import { FilterCompanies } from "@/feature/companies"
+import { CompanyAdd, CompanyDelete, CompanyEdit, FilterCompanies } from "@/feature/companies"
+import { useCompanyDeleteStore } from "@/feature/companies/delete/model"
+import { useCompanyEditStore } from "@/feature/companies/edit/model"
 import { useGetCompaniesQuery } from "@/feature/companies/list/api/query.ts"
 import { IGetCompanies } from "@/feature/companies/list/api/types.ts"
 import { ActionIcon, Box, Container, Flex, Grid, Text } from "@mantine/core"
@@ -12,10 +14,19 @@ import { FilledButton } from "@/shared/ui/buttons"
 import s from "./companies.module.scss"
 
 export const CompaniesList = () => {
+	const [setCompanyEdit, setCompanyId] = useCompanyEditStore((s) => [
+		s.setCompanyEdit,
+		s.setCompanyId,
+	])
+	const [setCompanyDelete, setCompanyDeleteId] = useCompanyDeleteStore((s) => [
+		s.setCompanyDelete,
+		s.setCompanyDeleteId,
+	])
 	const { data } = useGetCompaniesQuery()
+
 	return (
 		<>
-			<Container size={"1440px"} p={"3rem 0 7.25rem 0"} bg={"#FAFBFF"}>
+			<Container size={"1440px"} p={"3rem 1rem 7.25rem"} bg={"#FAFBFF"}>
 				<Grid>
 					<Grid.Col span={3}>
 						<FilterCompanies />
@@ -64,10 +75,22 @@ export const CompaniesList = () => {
 											<FilledButton flex={"auto"} h={"2.75rem"}>
 												Internships
 											</FilledButton>
-											<ActionIcon className={s.actionIcon}>
+											<ActionIcon
+												className={s.actionIcon}
+												onClick={() => {
+													setCompanyEdit(true)
+													setCompanyId(i?.id)
+												}}
+											>
 												<Image2 />
 											</ActionIcon>
-											<ActionIcon className={s.actionIcon}>
+											<ActionIcon
+												className={s.actionIcon}
+												onClick={() => {
+													setCompanyDelete(true)
+													setCompanyDeleteId(i?.id)
+												}}
+											>
 												<Image3 />
 											</ActionIcon>
 										</Flex>
@@ -79,6 +102,9 @@ export const CompaniesList = () => {
 					</Grid.Col>
 				</Grid>
 			</Container>
+			<CompanyAdd />
+			<CompanyEdit />
+			<CompanyDelete />
 		</>
 	)
 }
