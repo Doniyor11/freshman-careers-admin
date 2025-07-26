@@ -17,7 +17,7 @@ export const InternshipList = () => {
 		<Container
 			size={"1440px"}
 			className={s.profileContainer}
-			p={"3rem 0 7.25rem 0"}
+			p={"3rem 1rem 7.25rem"}
 			bg={"#FAFBFF"}
 		>
 			<Grid>

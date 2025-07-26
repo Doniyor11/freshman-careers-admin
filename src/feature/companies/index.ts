@@ -1,2 +1,5 @@
 export { CompaniesList } from "./list/ui"
+export { CompanyAdd } from "./add/ui"
+export { CompanyEdit } from "./edit/ui"
+export { CompanyDelete } from "./delete/ui"
 export { FilterCompanies } from "./filter-companies/ui"

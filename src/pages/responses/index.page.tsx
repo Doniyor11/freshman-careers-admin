@@ -1,12 +1,11 @@
-import { Responses } from "@/feature"
 import dynamic from "next/dynamic"
 import Head from "next/head"
 import React from "react"
 
-import { NavbarProfile } from "@/widgets"
+import { ResponsesList } from "@/feature"
 
 const PrivateRoute = dynamic(() => import("@/widgets/private-route"), {
-	ssr: false,
+	ssr: false
 })
 
 const ProfilePage = () => {
@@ -19,8 +18,7 @@ const ProfilePage = () => {
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
-				<NavbarProfile />
-				<Responses />
+				<ResponsesList />
 			</PrivateRoute>
 		</>
 	)

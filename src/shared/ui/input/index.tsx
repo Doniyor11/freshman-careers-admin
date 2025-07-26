@@ -42,6 +42,8 @@ export const Input = forwardRef<HTMLInputElement, InputIProps>(
 		useEffect(() => {
 			if (props.value) {
 				setFocused(true)
+			} else {
+				setFocused(false)
 			}
 		}, [props.value])
 

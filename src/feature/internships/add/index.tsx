@@ -5,6 +5,8 @@ import React from "react"
 
 import { ImageUpload, Select } from "@/shared/ui"
 import { FilledButton } from "@/shared/ui/buttons"
+import { InputDate } from "@/shared/ui/date-input"
+import { InputOutlined } from "@/shared/ui/inputs/input-outlined"
 
 import s from "./styles.module.scss"
 
@@ -32,8 +34,8 @@ export const InternshipAdd = () => {
 						</Text>
 						<Flex direction={"column"} gap={"0.5rem"}>
 							<Select placeholder={"Company"} />
-							<Select placeholder={"Title of internship"} />
-							<Select placeholder={"Internship Date"} />
+							<InputOutlined placeholder={"Title of internship"} />
+							<InputDate placeholder={"Internship Date"} />
 						</Flex>
 					</Flex>
 					<Flex direction={"column"}>
@@ -42,8 +44,8 @@ export const InternshipAdd = () => {
 						</Text>
 						<Flex direction={"column"} gap={"0.5rem"}>
 							<Select placeholder={"Present/Not present"} />
-							<Select placeholder={"Payment amount"} />
-							<Select placeholder={"Payment amount"} />
+							<InputOutlined placeholder={"Payment amount"} />
+							<Select placeholder={"Regularity of payment"} />
 						</Flex>
 					</Flex>
 					<Flex direction={"column"} mt={"2.5rem"}>
