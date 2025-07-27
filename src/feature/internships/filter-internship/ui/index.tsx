@@ -1,3 +1,4 @@
+import { useApplicationFilterStore } from "@/feature/internships/filter-internship/model"
 import { Box, Flex, Input } from "@mantine/core"
 import React from "react"
 
@@ -8,7 +9,6 @@ import { FilledButton } from "@/shared/ui/buttons"
 import { InputDate } from "@/shared/ui/date-input"
 
 import s from "./filter.module.scss"
-import { useApplicationFilterStore } from "@/feature/internships/filter-internship/model"
 
 export const FilterInternship = () => {
 	const [

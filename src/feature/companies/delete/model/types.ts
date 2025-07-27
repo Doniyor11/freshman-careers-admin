@@ -6,5 +6,4 @@ export interface IInitialState {
 export interface ICompanyDeleteStore extends IInitialState {
 	setCompanyDelete: (companyAdd: boolean) => void
 	setCompanyDeleteId: (companyDeleteId: number | undefined) => void
-
 }

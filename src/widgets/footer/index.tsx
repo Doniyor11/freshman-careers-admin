@@ -6,7 +6,7 @@ import s from "./footer.module.scss"
 export const Footer = () => {
 	return (
 		<Box className={s.footerWrapper}>
-			<Container size={"1440px"} >
+			<Container size={"1440px"}>
 				<Flex gap={"4.5rem"}>
 					<Flex direction={"column"} gap={"0.75rem"}>
 						<Text component={"h2"} className={s.footerTitle}>

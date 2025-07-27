@@ -6,7 +6,6 @@ import { Modal } from "@/shared/ui"
 
 import s from "./styles.module.scss"
 
-
 interface IDeleteModalType {
 	name: string
 	opened: boolean
@@ -22,7 +21,6 @@ export const DeleteModal: FC<IDeleteModalType> = ({
 	onDelete,
 	onCancel,
 }) => {
-
 	return (
 		<>
 			<Modal size={568} opened={opened} onClose={onClose} centered>
@@ -32,8 +30,12 @@ export const DeleteModal: FC<IDeleteModalType> = ({
 						Are you sure you want to delete an {name}? Once deleted, the
 						{name} and feedback cannot be restored. Delete an {name}?
 					</Text>
-					<Button className={cx(s.btn,s.filled)} onClick={onCancel}>Cancel</Button>
-					<Button className={cx(s.btn,s.outlined)} onClick={onDelete}>Delete</Button>
+					<Button className={cx(s.btn, s.filled)} onClick={onCancel}>
+						Cancel
+					</Button>
+					<Button className={cx(s.btn, s.outlined)} onClick={onDelete}>
+						Delete
+					</Button>
 				</Box>
 			</Modal>
 		</>

@@ -1,11 +1,10 @@
+import { ResponsesList } from "@/feature"
 import dynamic from "next/dynamic"
 import Head from "next/head"
 import React from "react"
 
-import { ResponsesList } from "@/feature"
-
 const PrivateRoute = dynamic(() => import("@/widgets/private-route"), {
-	ssr: false
+	ssr: false,
 })
 
 const ProfilePage = () => {

@@ -5,7 +5,7 @@ import { ICompanyDeleteStore, IInitialState } from "./types.ts"
 
 const initialState: IInitialState = {
 	companyDelete: false,
-	companyDeleteId: undefined
+	companyDeleteId: undefined,
 }
 
 export const useCompanyDeleteStore = create<ICompanyDeleteStore>()(
@@ -16,6 +16,6 @@ export const useCompanyDeleteStore = create<ICompanyDeleteStore>()(
 		},
 		setCompanyDeleteId: (e) => {
 			set({ companyDeleteId: e })
-		}
-	}))
+		},
+	})),
 )

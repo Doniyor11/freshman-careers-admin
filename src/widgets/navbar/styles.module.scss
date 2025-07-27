@@ -1,19 +1,18 @@
 .profileContainer {
-  border-bottom: 1px solid #e2eaff;
-  background: rgba(250, 251, 255, 0.8);
-  backdrop-filter: blur(2px);
+	border-bottom: 1px solid #e2eaff;
+	background: rgba(250, 251, 255, 0.8);
+	backdrop-filter: blur(2px);
 
-  .link {
-    color: #001C31;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    transition: .2s ease-in-out;
+	.link {
+		color: #001c31;
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 24px;
+		transition: 0.2s ease-in-out;
 
-    &.active {
-      color: #004B84;
-      font-weight: 600;
-    }
-  }
+		&.active {
+			color: #004b84;
+			font-weight: 600;
+		}
+	}
 }
-
