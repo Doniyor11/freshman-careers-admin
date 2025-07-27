@@ -1,3 +1,4 @@
+import { useCompanyAddStore } from "@/feature/companies/add/model"
 import { useCompaniesFilterStore } from "@/feature/companies/filter-companies/model"
 import { Box, Flex, Input } from "@mantine/core"
 import React from "react"
@@ -7,7 +8,6 @@ import { BadgeGroup } from "@/shared/ui/badge-group"
 import { FilledButton } from "@/shared/ui/buttons"
 
 import s from "./filter.module.scss"
-import { useCompanyAddStore } from "@/feature/companies/add/model"
 
 export const FilterCompanies = () => {
 	const setCompanyAdd = useCompanyAddStore((s) => s.setCompanyAdd)
@@ -17,7 +17,7 @@ export const FilterCompanies = () => {
 			s.search,
 			s.availableInternships,
 			s.setSearch,
-			s.setAvailableInternships
+			s.setAvailableInternships,
 		])
 
 	return (
@@ -41,13 +41,18 @@ export const FilterCompanies = () => {
 						"51-100",
 						"101-200",
 						"200+",
-						"No available"
+						"No available",
 					]}
 					value={availableInternships}
 					onChange={(e: any) => setAvailableInternships(e)}
 				/>
 			</Flex>
-			<FilledButton fullWidth h={"3rem"} mt={"1.5rem"} onClick={() => setCompanyAdd(true)}>
+			<FilledButton
+				fullWidth
+				h={"3rem"}
+				mt={"1.5rem"}
+				onClick={() => setCompanyAdd(true)}
+			>
 				Add a company
 			</FilledButton>
 		</Box>

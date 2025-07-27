@@ -1,14 +1,14 @@
 import { Button, Flex, Text } from "@mantine/core"
-import dynamic from "next/dynamic"
-import React, { useState } from "react"
 import Cookies from "js-cookie"
+import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
+import React, { useState } from "react"
+import { toast } from "react-toastify"
 
+import { TOKEN } from "@/shared/constants/env.ts"
 import { Input } from "@/shared/ui"
 
 import s from "./styles.module.scss"
-import { TOKEN } from "@/shared/constants/env.ts"
-import { toast } from "react-toastify"
 
 const PublicRoute = dynamic(() => import("@/widgets/public-route"), {
 	ssr: false,

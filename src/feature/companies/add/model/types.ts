@@ -4,5 +4,4 @@ export interface IInitialState {
 
 export interface ICompanyAddStore extends IInitialState {
 	setCompanyAdd: (companyAdd: boolean) => void
-
 }

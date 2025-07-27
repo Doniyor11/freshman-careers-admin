@@ -1,3 +1,4 @@
+import { FilterResponse } from "@/feature/responses/filter-response/ui"
 import { Box, Container, Flex, Grid, Text } from "@mantine/core"
 import Image from "next/image"
 import React from "react"
@@ -13,8 +14,7 @@ export const ResponsesList = () => {
 			<Grid gutter={"1.5rem"}>
 				<Grid.Col span={3}>
 					<Flex direction={"column"} gap={"1.5rem"}>
-						{/*<Filter />*/}
-						Filter
+						<FilterResponse />
 					</Flex>
 				</Grid.Col>
 				<Grid.Col span={9}>

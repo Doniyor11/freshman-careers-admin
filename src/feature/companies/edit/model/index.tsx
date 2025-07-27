@@ -5,7 +5,7 @@ import { ICompanyEditStore, IInitialState } from "./types.ts"
 
 const initialState: IInitialState = {
 	companyEdit: false,
-	companyId: undefined
+	companyId: undefined,
 }
 
 export const useCompanyEditStore = create<ICompanyEditStore>()(
@@ -16,6 +16,6 @@ export const useCompanyEditStore = create<ICompanyEditStore>()(
 		},
 		setCompanyId: (e) => {
 			set({ companyId: e })
-		}
-	}))
+		},
+	})),
 )

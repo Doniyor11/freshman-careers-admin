@@ -6,5 +6,4 @@ export interface IInitialState {
 export interface ICompanyEditStore extends IInitialState {
 	setCompanyEdit: (companyAdd: boolean) => void
 	setCompanyId: (companyId: number | undefined) => void
-
 }

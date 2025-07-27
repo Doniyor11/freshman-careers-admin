@@ -1,4 +1,9 @@
-import { CompanyAdd, CompanyDelete, CompanyEdit, FilterCompanies } from "@/feature/companies"
+import {
+	CompanyAdd,
+	CompanyDelete,
+	CompanyEdit,
+	FilterCompanies,
+} from "@/feature/companies"
 import { useCompanyDeleteStore } from "@/feature/companies/delete/model"
 import { useCompanyEditStore } from "@/feature/companies/edit/model"
 import { useGetCompaniesQuery } from "@/feature/companies/list/api/query.ts"
@@ -44,27 +49,31 @@ export const CompaniesList = () => {
 									<Box className={s.companiesCardWrapper}>
 										<Flex gap={"1rem"}>
 											<Box className={s.companiesCardIcon}>
-												<Image
-													src={i?.image}
-													alt="Company Logo"
-													width={48}
-													height={48}
-													unoptimized
-												/>
+												{i?.image && (
+													<Image
+														src={i?.image}
+														alt="Company Logo"
+														width={48}
+														height={48}
+														unoptimized
+													/>
+												)}
 											</Box>
 											<Flex direction={"column"} gap={"0.5rem"}>
 												<Text component={"h3"} className={s.companiesCardTitle}>
-													{i?.name}
+													{i?.title}
 												</Text>
-												<Text
-													component={"p"}
-													className={s.companiesCardDescription}
-												>
-													{i?.internship_count}
-													{i?.internship_count > 1
-														? " internship"
-														: " internships"}
-												</Text>
+												{!!i?.internship_count && (
+													<Text
+														component={"p"}
+														className={s.companiesCardDescription}
+													>
+														{i?.internship_count}
+														{i?.internship_count > 1
+															? " internship"
+															: " internships"}
+													</Text>
+												)}
 											</Flex>
 										</Flex>
 										<Flex
