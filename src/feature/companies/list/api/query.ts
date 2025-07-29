@@ -1,13 +1,17 @@
+import { IGetCompaniesParam } from "@/feature/companies/list/api/types.ts"
 import { useQuery } from "@tanstack/react-query"
 
 import { apiKeys } from "@/shared/constants/api-keys.ts"
 
 import { getCompaniesApi, getCompanyApi } from "./index.ts"
 
-export const useGetCompaniesQuery = () => {
+export const useGetCompaniesQuery = ({
+	title,
+	internship_count_range,
+}: IGetCompaniesParam) => {
 	return useQuery({
-		queryFn: () => getCompaniesApi(),
-		queryKey: [apiKeys.companies],
+		queryFn: () => getCompaniesApi({ title, internship_count_range }),
+		queryKey: [apiKeys.companies, title, internship_count_range],
 		select: (data) => data,
 	})
 }

@@ -6,6 +6,7 @@ import {
 } from "@/feature/companies"
 import { useCompanyDeleteStore } from "@/feature/companies/delete/model"
 import { useCompanyEditStore } from "@/feature/companies/edit/model"
+import { useCompaniesFilterStore } from "@/feature/companies/filter-companies/model"
 import { useGetCompaniesQuery } from "@/feature/companies/list/api/query.ts"
 import { IGetCompanies } from "@/feature/companies/list/api/types.ts"
 import { ActionIcon, Box, Container, Flex, Grid, Text } from "@mantine/core"
@@ -14,6 +15,7 @@ import React from "react"
 
 import Image2 from "@/shared/assets/images/icon/edit-orange.svg"
 import Image3 from "@/shared/assets/images/icon/trash-orange.svg"
+import { EnvKeys } from "@/shared/constants/env.ts"
 import { FilledButton } from "@/shared/ui/buttons"
 
 import s from "./companies.module.scss"
@@ -27,7 +29,25 @@ export const CompaniesList = () => {
 		s.setCompanyDelete,
 		s.setCompanyDeleteId,
 	])
-	const { data } = useGetCompaniesQuery()
+	const [search, availableInternships] = useCompaniesFilterStore((s) => [
+		s.search,
+		s.availableInternships,
+	])
+
+	const handleAvailableInternships = () => {
+		if (availableInternships === "up to 10") {
+			return "0-10"
+		} else if (availableInternships === "No available") {
+			return "no"
+		} else {
+			return availableInternships
+		}
+	}
+
+	const { data } = useGetCompaniesQuery({
+		title: search as any,
+		internship_count_range: handleAvailableInternships(),
+	})
 
 	return (
 		<>
@@ -51,7 +71,7 @@ export const CompaniesList = () => {
 											<Box className={s.companiesCardIcon}>
 												{i?.image && (
 													<Image
-														src={i?.image}
+														src={`${EnvKeys.NEXT_HOST}/${i?.image}`}
 														alt="Company Logo"
 														width={48}
 														height={48}
@@ -61,7 +81,7 @@ export const CompaniesList = () => {
 											</Box>
 											<Flex direction={"column"} gap={"0.5rem"}>
 												<Text component={"h3"} className={s.companiesCardTitle}>
-													{i?.title}
+													{i?.name}
 												</Text>
 												{!!i?.internship_count && (
 													<Text
