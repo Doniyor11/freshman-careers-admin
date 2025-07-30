@@ -90,8 +90,8 @@ export const CompaniesList = () => {
 													>
 														{i?.internship_count}
 														{i?.internship_count > 1
-															? " internship"
-															: " internships"}
+															? " internships"
+															: " internship"}
 													</Text>
 												)}
 											</Flex>

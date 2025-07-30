@@ -1,18 +1,22 @@
 import { Flex, Text } from "@mantine/core"
 import { ImageIcon } from "lucide-react"
-import { useRef, useState } from "react"
+import { FC, useRef, useState } from "react"
 
 import { OutlineButton } from "@/shared/ui/buttons"
 
 import s from "./style.module.scss"
 
-export const ImageUpload = () => {
+interface IProps {
+	setUploadFile: (file: any) => void
+}
+export const ImageUpload: FC<IProps> = ({ setUploadFile }) => {
 	const [selectedImage, setSelectedImage] = useState<string | null>(null)
 	const [isUploading, setIsUploading] = useState(false)
 	const [uploadStatus, setUploadStatus] = useState<string>("")
 	const fileInputRef = useRef<HTMLInputElement>(null)
 
 	const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setUploadFile(event.target.files?.[0])
 		const file = event.target.files?.[0]
 		if (file) {
 			handleFileUpload(file)
@@ -64,6 +68,7 @@ export const ImageUpload = () => {
 	}
 
 	const handleRemoveImage = () => {
+		setUploadFile(null)
 		setSelectedImage(null)
 		setUploadStatus("")
 		if (fileInputRef.current) {

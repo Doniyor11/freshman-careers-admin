@@ -1,5 +1,6 @@
 import { useApplicationFilterStore } from "@/feature/internships/filter-internship/model"
 import { Box, Flex, Input } from "@mantine/core"
+import { useRouter } from "next/router"
 import React from "react"
 
 import Icon5 from "@/shared/assets/images/icon/briefcase.svg"
@@ -11,6 +12,7 @@ import { InputDate } from "@/shared/ui/date-input"
 import s from "./filter.module.scss"
 
 export const FilterInternship = () => {
+	const router = useRouter()
 	const [
 		format,
 		education,
@@ -86,7 +88,12 @@ export const FilterInternship = () => {
 					onChange={(e: any) => setSalary(e)}
 				/>
 			</Flex>
-			<FilledButton fullWidth h={"3rem"} mt={"1.5rem"}>
+			<FilledButton
+				fullWidth
+				h={"3rem"}
+				mt={"1.5rem"}
+				onClick={() => router.push("/internships/add")}
+			>
 				Add interships
 			</FilledButton>
 		</Box>

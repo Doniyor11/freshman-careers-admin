@@ -50,3 +50,29 @@
 		margin-bottom: 0.5rem;
 	}
 }
+
+.rangeInput {
+	.datePickerInput {
+		height: 64px;
+		border-radius: 8px;
+		border: 1px solid #e2eaff;
+		background: #fafbff;
+
+		color: #000;
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 24px;
+		letter-spacing: -0.4px;
+
+		.datePickerPlaceholder {
+			color: #848f98;
+			font-size: 16px !important;
+			line-height: 20px;
+			letter-spacing: -0.32px;
+		}
+	}
+
+	.error {
+		color: #f00;
+	}
+}

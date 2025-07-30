@@ -6,6 +6,6 @@ export interface IGetCompanies {
 }
 
 export interface IGetCompaniesParam {
-	title: string
-	internship_count_range: string | undefined
+	title?: string
+	internship_count_range?: string | undefined
 }

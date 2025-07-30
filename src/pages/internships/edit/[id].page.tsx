@@ -1,4 +1,4 @@
-import { InternshipAdd } from "@/feature"
+import { InternshipEdit } from "@/feature/internships/edit/ui"
 import dynamic from "next/dynamic"
 import Head from "next/head"
 import React from "react"
@@ -7,7 +7,7 @@ const PrivateRoute = dynamic(() => import("@/widgets/private-route"), {
 	ssr: false,
 })
 
-const AddInternship = () => {
+const EditInternship = () => {
 	return (
 		<PrivateRoute>
 			<Head>
@@ -17,9 +17,9 @@ const AddInternship = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<InternshipAdd />
+			<InternshipEdit />
 		</PrivateRoute>
 	)
 }
 
-export default AddInternship
+export default EditInternship
