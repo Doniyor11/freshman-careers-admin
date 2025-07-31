@@ -20,6 +20,7 @@ export const CompanyAdd = () => {
 	const imageUrl = file ? URL.createObjectURL(file) : null
 
 	const {
+		reset,
 		control,
 		handleSubmit,
 		formState: { isDirty },
@@ -29,6 +30,9 @@ export const CompanyAdd = () => {
 	const onClose = () => {
 		setFile(null)
 		setCompanyAdd(false)
+		reset({
+			name: "",
+		})
 	}
 
 	const { mutate, isPending } = useAddCompanyQuery(onClose)

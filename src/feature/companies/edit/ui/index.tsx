@@ -22,7 +22,7 @@ export const CompanyEdit = () => {
 		])
 	const [file, setFile] = useState<File | null>(null)
 	const imageUrl = file ? URL.createObjectURL(file) : null
-	console.log(companyId)
+
 	const {
 		reset,
 		control,
@@ -39,7 +39,6 @@ export const CompanyEdit = () => {
 	}
 
 	const { data: DefaultValue } = useGetCompanyQuery(companyId)
-	console.log(DefaultValue)
 	useEffect(() => {
 		reset({
 			name: DefaultValue?.name,
@@ -61,7 +60,7 @@ export const CompanyEdit = () => {
 			<Text className={s.modalTitle}>Edit the company</Text>
 			<div className={s.imageWrapper}>
 				<Image
-					src={`${file ? imageUrl : ImageGallery.src}`}
+					src={`${file ? imageUrl : DefaultValue?.image || ImageGallery.src}`}
 					alt={"image"}
 					width={150}
 					height={150}
@@ -88,7 +87,7 @@ export const CompanyEdit = () => {
 				<Button
 					className={s.saveBtn}
 					type={"submit"}
-					disabled={!isDirty || !file}
+					disabled={!isDirty}
 					loading={isPending}
 				>
 					Save
