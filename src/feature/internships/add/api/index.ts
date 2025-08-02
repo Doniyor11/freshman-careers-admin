@@ -25,7 +25,6 @@ export const addInternshipApi = async (data: IInternships) => {
 	if (data?.picture) {
 		formData.append("picture", data?.picture)
 	}
-	formData.append("salary", "0")
 	formData.append("conditions", data?.conditions)
 	formData.append("description", data?.description)
 	formData.append("requirements", data?.requirements)

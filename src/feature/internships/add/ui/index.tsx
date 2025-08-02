@@ -221,7 +221,7 @@ export const InternshipAdd = () => {
 									render={({ field }) => (
 										<Select
 											placeholder={"Working hours"}
-											data={["09:00-18:00 ", "10:00-19:00"]}
+											data={["09:00-18:00", "10:00-19:00"]}
 											{...field}
 										/>
 									)}
