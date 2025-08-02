@@ -40,6 +40,7 @@ export const InternshipAdd = () => {
 	const onClose = () => {
 		setFile(null)
 		reset({})
+		router.push("/internships")
 	}
 
 	const { mutate, isPending } = useAddInternshipQuery(onClose)
