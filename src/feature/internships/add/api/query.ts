@@ -15,8 +15,7 @@ export const useAddInternshipQuery = (onSuccess: () => void) => {
 			toast.success("Internship added successfully!")
 			onSuccess && onSuccess()
 		},
-		onError: (data) => {
-			// @ts-ignore
+		onError: (data: any) => {
 			toast.error(data?.detail)
 		},
 	})
