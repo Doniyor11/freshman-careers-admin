@@ -1,7 +1,7 @@
 import IconEdit from "@//shared/assets//images/icon/edit.svg"
 import IconTrash from "@//shared/assets//images/icon/trash.svg"
 import { ActionIcon, Box, Flex, Text } from "@mantine/core"
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
 import React from "react"
 
 import { FilledButton } from "@/shared/ui/buttons"
@@ -9,9 +9,9 @@ import { FilledButton } from "@/shared/ui/buttons"
 import s from "./internships-card.module.scss"
 
 interface InternshipsCardProps {
-	imageSrc: StaticImageData
+	imageSrc: string
 	imageAlt: string
-	iconSrc: StaticImageData
+	iconSrc: string
 	iconAlt: string
 	day: string
 	title: string

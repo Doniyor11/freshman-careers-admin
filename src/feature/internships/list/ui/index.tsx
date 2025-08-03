@@ -8,6 +8,7 @@ import React from "react"
 
 import Icon2 from "@/shared/assets/images/icon/chevron_backward3.svg"
 import Icon3 from "@/shared/assets/images/icon/chevron_backward-small.svg"
+import { EnvKeys } from "@/shared/constants/env.ts"
 import { InternshipsCard } from "@/shared/ui"
 
 import { useGetInternshipsQuery } from "../api/query.ts"
@@ -79,43 +80,35 @@ export const InternshipList = () => {
 						</Flex>
 						{/* ------------ Card -------------	*/}
 						<Grid mt={"1.5rem"} gutter={"1.5rem"}>
-							{data ? (
-								data.map((i: IGetInternship, index: number) => (
-									<Grid.Col span={4} key={index}>
-										<InternshipsCard
-											companyName={i?.company?.title}
-											imageSrc={i?.picture as any}
-											imageAlt={i?.title}
-											iconSrc={i?.company?.image as any}
-											iconAlt={i?.company?.title}
-											day={
-												i?.date_posted &&
-												dayjs(i.date_posted).isSame(dayjs(), "day")
-													? "today"
-													: " "
-											}
-											title={i?.title}
-											description={i?.description}
-											datesLabel={"Internship Dates:"}
-											dates={`${dayjs(i?.internship_start_date).format(
-												"DD.MM.YYYY",
-											)} - ${dayjs(i?.internship_end_date).format(
-												"DD.MM.YYYY",
-											)}`}
-											onEdit={() => router.push(`/internships/edit/${i?.id}`)}
-											onDelete={() => {
-												setInternshipDelete(true)
-												setInternshipDeleteId(i?.id)
-											}}
-										/>
-									</Grid.Col>
-								))
-							) : (
-								<div className={s.error}>
-									Произошла ошибка при загрузке стажировок. Проверьте
-									подключение к сети.
-								</div>
-							)}
+							{data?.map((i: IGetInternship, index: number) => (
+								<Grid.Col span={4} key={index}>
+									<InternshipsCard
+										companyName={i?.company_title}
+										imageSrc={`${EnvKeys.NEXT_HOST}/${i?.picture}`}
+										imageAlt={i?.title}
+										iconSrc={`${EnvKeys.NEXT_HOST}/${i?.company_image}`}
+										iconAlt={i?.company_title}
+										day={
+											i?.date_posted &&
+											dayjs(i.date_posted).isSame(dayjs(), "day")
+												? "today"
+												: dayjs(i.date_posted).format("YYYY-MM-DD")
+										}
+										title={i?.title}
+										description={i?.description}
+										datesLabel={"Internship Dates:"}
+										dates={`${dayjs(i?.internship_start_date).format(
+											"DD.MM.YYYY",
+										)} - ${dayjs(i?.internship_end_date).format("DD.MM.YYYY")}`}
+										onResponses={() => router.push("/responses")}
+										onEdit={() => router.push(`/internships/edit/${i?.id}`)}
+										onDelete={() => {
+											setInternshipDelete(true)
+											setInternshipDeleteId(i?.id)
+										}}
+									/>
+								</Grid.Col>
+							))}
 						</Grid>
 						{/* ------------ Card -------------	*/}
 					</Grid.Col>
