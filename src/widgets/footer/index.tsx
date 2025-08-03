@@ -1,9 +1,11 @@
-import { Box, Container, Flex, Text } from "@mantine/core"
+import { Anchor, Box, Container, Flex, Text } from "@mantine/core"
+import { useRouter } from "next/router"
 import React from "react"
 
 import s from "./footer.module.scss"
 
 export const Footer = () => {
+	const router = useRouter()
 	return (
 		<Box className={s.footerWrapper}>
 			<Container size={"1440px"}>
@@ -12,43 +14,51 @@ export const Footer = () => {
 						<Text component={"h2"} className={s.footerTitle}>
 							PROGRAMS
 						</Text>
-						<Text component={"p"} className={s.footerDescription}>
-							Internship
+						<Text
+							className={s.footerDescription}
+							onClick={() => router.push("/companies")}
+						>
+							Companies
 						</Text>
-						<Text component={"p"} className={s.footerDescription}>
-							Mentorship
+						<Text
+							className={s.footerDescription}
+							onClick={() => router.push("/internships")}
+						>
+							Internships
 						</Text>
-					</Flex>
-					<Flex direction={"column"} gap={"0.75rem"}>
-						<Text component={"h2"} className={s.footerTitle}>
-							INFORMATION
-						</Text>
-						<Text component={"p"} className={s.footerDescription}>
-							Opportunities
-						</Text>
-						<Text component={"p"} className={s.footerDescription}>
-							Reviews
-						</Text>
-						<Text component={"p"} className={s.footerDescription}>
-							Webinars
-						</Text>
-						<Text component={"p"} className={s.footerDescription}>
-							FAQ
+						<Text
+							className={s.footerDescription}
+							onClick={() => router.push("/responses")}
+						>
+							Responses
 						</Text>
 					</Flex>
+
 					<Flex direction={"column"} gap={"0.75rem"}>
 						<Text component={"h2"} className={s.footerTitle}>
 							SOCIAL MEDIA
 						</Text>
-						<Text component={"p"} className={s.footerDescription}>
+						<Anchor
+							href={"https://t.me/freshmancareers"}
+							target={"_blank"}
+							className={s.footerDescription}
+						>
 							Telegram
-						</Text>
-						<Text component={"p"} className={s.footerDescription}>
+						</Anchor>
+						<Anchor
+							href={"https://www.instagram.com/freshman.careers"}
+							target={"_blank"}
+							className={s.footerDescription}
+						>
 							Instagram
-						</Text>
-						<Text component={"p"} className={s.footerDescription}>
+						</Anchor>
+						<Anchor
+							href={"#"}
+							target={"_blank"}
+							className={s.footerDescription}
+						>
 							YouTube
-						</Text>
+						</Anchor>
 					</Flex>
 				</Flex>
 				<Flex justify={"center"} align={"center"} mt={"5rem"}>

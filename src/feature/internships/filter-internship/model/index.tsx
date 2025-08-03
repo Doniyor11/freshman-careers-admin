@@ -8,7 +8,7 @@ const initialState: IInitialState = {
 	education: undefined,
 	salary: undefined,
 	search: undefined,
-	date: null,
+	date: [null, null],
 }
 
 export const useApplicationFilterStore = create<IApplicationFilterStore>()(

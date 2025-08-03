@@ -1,14 +1,37 @@
+import { useResponseFilterStore } from "@/feature/responses/filter-response/model"
 import { FilterResponse } from "@/feature/responses/filter-response/ui"
+import {
+	useGetResponsesQuery,
+	useResponseStatusQuery,
+} from "@/feature/responses/list/api/query.ts"
+import { IGetResponse } from "@/feature/responses/list/api/types.ts"
 import { Box, Container, Flex, Grid, Text } from "@mantine/core"
+import dayjs from "dayjs"
 import Image from "next/image"
+import { useRouter } from "next/router"
 import React from "react"
 
-import ImageUser from "@/shared/assets/images/image.png"
+import { EnvKeys } from "@/shared/constants/env.ts"
 import { FilledButton, OutlineButton } from "@/shared/ui/buttons"
 
 import s from "./my-profile.module.scss"
 
+interface ICardDataType {
+	data: IGetResponse
+}
+
 export const ResponsesList = () => {
+	const [companyId, status, date] = useResponseFilterStore((s) => [
+		s.companyId,
+		s.status,
+		s.date,
+	])
+	const { data } = useGetResponsesQuery({
+		status,
+		company_id: companyId ? Number(companyId) : undefined,
+		date_from: date[0] ? dayjs(date[0]).format("DD.MM.YYYY") : undefined,
+		date_to: date[1] ? dayjs(date[1]).format("DD.MM.YYYY") : undefined,
+	})
 	return (
 		<Container size={"1440px"} className={s.myProfileWrapper}>
 			<Grid gutter={"1.5rem"}>
@@ -26,7 +49,9 @@ export const ResponsesList = () => {
 									Responses
 								</Text>
 							</Flex>
-							<Card />
+							{data?.map((item: IGetResponse, index: number) => (
+								<Card data={item} key={index} />
+							))}
 						</Grid.Col>
 					</Grid>
 					{/*	 -----------  Grid end ------------ */}
@@ -36,7 +61,17 @@ export const ResponsesList = () => {
 	)
 }
 
-const Card = () => {
+const Card = ({ data }: ICardDataType) => {
+	const router = useRouter()
+
+	const { mutate, isPending } = useResponseStatusQuery()
+
+	const onChangeStatus = (status?: string) => {
+		mutate({
+			id: data?.id,
+			status,
+		})
+	}
 	return (
 		<Box className={s.internshipsCardWrapper}>
 			<Flex
@@ -47,20 +82,25 @@ const Card = () => {
 			>
 				<Flex direction={"column"}>
 					<Text component={"h3"} className={s.internshipsCardTitle}>
-						Response #1
+						{data?.hashed_id || "-"}
 					</Text>
 					<Text component={"h3"} className={s.status} c={"#004B84"}>
-						Pending
+						{data?.status || "Pending"}
 					</Text>
 				</Flex>
-				<Box className={s.internshipsCardDay}>Today</Box>
+				<Box className={s.internshipsCardDay}>
+					{data?.application_date &&
+					dayjs(data?.application_date).isSame(dayjs(), "day")
+						? "today"
+						: dayjs(data?.application_date).format("YYYY-MM-DD")}
+				</Box>
 			</Flex>
 			<Box className={s.internshipsCardContent}>
 				<Flex justify={"space-between"} align={"center"}>
 					<Flex align={"center"} gap={10}>
 						<Box className={s.internshipsCardIcon}>
 							<Image
-								src={ImageUser}
+								src={`${EnvKeys.NEXT_HOST}/${data?.internship?.picture}`}
 								alt={"iconAlt"}
 								width={32}
 								height={32}
@@ -72,13 +112,10 @@ const Card = () => {
 				</Flex>
 				<Flex direction={"column"} m={"1.5rem 0 1.5rem"} gap={"0.75rem"}>
 					<Text component={"h3"} className={s.internshipsCardTitle}>
-						Trainee designer
+						{data?.internship?.title || "-"}
 					</Text>
 					<Text component={"p"} className={s.internshipsCardDescription}>
-						Internship at Microsoft is a unique experience of working in an
-						international team, participation in real projects and the
-						opportunity to learn the best practices of one of the most
-						innovative corporations in the world.
+						{data?.internship?.description || "-"}
 					</Text>
 				</Flex>
 				<Flex direction={"column"} mb={"1.5rem"}>
@@ -86,21 +123,34 @@ const Card = () => {
 						Internship Dates:
 					</Text>
 					<Text component={"p"} className={s.internshipsCardDate}>
-						25.05.2025 - 25.08.2025
+						{`${data?.internship?.internship_start_date} - ${data?.internship?.internship_end_date}`}
 					</Text>
 				</Flex>
 				<FilledButton
-					className={s.internshipsCardButton}
 					fullWidth
 					h={"2.75rem"}
+					className={s.internshipsCardButton}
+					onClick={() => router.push("/internships")}
 				>
 					View Summary
 				</FilledButton>
 				<Flex justify={"space-between"} gap={"0.5rem"} mt={"0.5rem"}>
-					<OutlineButton fullWidth h={"2.75rem"} className={s.buttonOutline}>
+					<OutlineButton
+						fullWidth
+						h={"2.75rem"}
+						className={s.buttonOutline}
+						loading={isPending}
+						onClick={() => onChangeStatus("Accepted")}
+					>
 						Accept
 					</OutlineButton>
-					<OutlineButton fullWidth h={"2.75rem"} className={s.buttonOutline}>
+					<OutlineButton
+						fullWidth
+						h={"2.75rem"}
+						className={s.buttonOutline}
+						loading={isPending}
+						onClick={() => onChangeStatus("Rejected")}
+					>
 						Reject
 					</OutlineButton>
 				</Flex>

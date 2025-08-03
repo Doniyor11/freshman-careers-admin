@@ -17,20 +17,18 @@ export interface IGetInternship {
 	schedule: string
 	working_hours: string
 	id: number
-	company: ICompany
-}
-
-export interface ICompany {
-	image: string
-	title: string
-	description: string
-	id: number
+	company_title: string
+	company_image: string
+	company_description: string
 }
 
 export interface IInternshipParam {
-	name?: string
-	format?: string
+	title?: string
+	start_date_min?: any
+	start_date_max?: any
 	education?: string
-	salary?: string
-	date?: Date | null
+	format?: string
+	only_titles?: boolean
+	limit?: number
+	offset?: number
 }

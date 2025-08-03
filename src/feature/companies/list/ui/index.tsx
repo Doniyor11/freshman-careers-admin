@@ -11,6 +11,7 @@ import { useGetCompaniesQuery } from "@/feature/companies/list/api/query.ts"
 import { IGetCompanies } from "@/feature/companies/list/api/types.ts"
 import { ActionIcon, Box, Container, Flex, Grid, Text } from "@mantine/core"
 import Image from "next/image"
+import { useRouter } from "next/router"
 import React from "react"
 
 import Image2 from "@/shared/assets/images/icon/edit-orange.svg"
@@ -21,6 +22,7 @@ import { FilledButton } from "@/shared/ui/buttons"
 import s from "./companies.module.scss"
 
 export const CompaniesList = () => {
+	const router = useRouter()
 	const [setCompanyEdit, setCompanyId] = useCompanyEditStore((s) => [
 		s.setCompanyEdit,
 		s.setCompanyId,
@@ -101,7 +103,11 @@ export const CompaniesList = () => {
 											justify={"space-between"}
 											gap={"0.5rem"}
 										>
-											<FilledButton flex={"auto"} h={"2.75rem"}>
+											<FilledButton
+												flex={"auto"}
+												h={"2.75rem"}
+												onClick={() => router.push(`/internships`)}
+											>
 												Internships
 											</FilledButton>
 											<ActionIcon

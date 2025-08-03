@@ -1,13 +1,13 @@
 import { useApplicationFilterStore } from "@/feature/internships/filter-internship/model"
 import { Box, Flex, Input } from "@mantine/core"
+import { DatePickerInput } from "@mantine/dates"
 import { useRouter } from "next/router"
 import React from "react"
 
-import Icon5 from "@/shared/assets/images/icon/briefcase.svg"
+import IconBriefcase from "@/shared/assets/images/icon/briefcase.svg"
 import Icon4 from "@/shared/assets/images/icon/search-normal.svg"
 import { BadgeGroup } from "@/shared/ui/badge-group"
 import { FilledButton } from "@/shared/ui/buttons"
-import { InputDate } from "@/shared/ui/date-input"
 
 import s from "./filter.module.scss"
 
@@ -16,23 +16,19 @@ export const FilterInternship = () => {
 	const [
 		format,
 		education,
-		salary,
 		search,
 		date,
 		setFormat,
 		setEducation,
-		setSalary,
 		setSearch,
 		setDate,
 	] = useApplicationFilterStore((s) => [
 		s.format,
 		s.education,
-		s.salary,
 		s.search,
 		s.date,
 		s.setFormat,
 		s.setEducation,
-		s.setSalary,
 		s.setSearch,
 		s.setDate,
 	])
@@ -49,15 +45,16 @@ export const FilterInternship = () => {
 				/>
 			</Box>
 			<Flex direction={"column"} gap={"2rem"}>
-				{/*<Select*/}
-				{/*	label={"Internship direction"}*/}
-				{/*	placeholder={"Internship direction"}*/}
-				{/*	leftSection={<Icon5 />}*/}
-				{/*/>*/}
-				<InputDate
-					label={"Internship Date"}
-					placeholder={"Select dates"}
-					leftSection={<Icon5 />}
+				<DatePickerInput
+					type="range"
+					valueFormat={"YYYY-MM-DD"}
+					placeholder="Internship Date"
+					className={s.rangeInput}
+					classNames={{
+						input: s.datePickerInput,
+						placeholder: s.datePickerPlaceholder,
+					}}
+					leftSection={<IconBriefcase />}
 					value={date}
 					onChange={setDate}
 				/>
@@ -73,20 +70,20 @@ export const FilterInternship = () => {
 					value={education}
 					onChange={(e: any) => setEducation(e)}
 				/>
-				<BadgeGroup
-					label={"Salary, $"}
-					options={[
-						"up to 100",
-						"101-200",
-						"201-500",
-						"501-1000",
-						"1001-2000",
-						"2000+",
-						"Not Specified",
-					]}
-					value={salary}
-					onChange={(e: any) => setSalary(e)}
-				/>
+				{/*<BadgeGroup*/}
+				{/*	label={"Salary, $"}*/}
+				{/*	options={[*/}
+				{/*		"up to 100",*/}
+				{/*		"101-200",*/}
+				{/*		"201-500",*/}
+				{/*		"501-1000",*/}
+				{/*		"1001-2000",*/}
+				{/*		"2000+",*/}
+				{/*		"Not Specified",*/}
+				{/*	]}*/}
+				{/*	value={salary}*/}
+				{/*	onChange={(e: any) => setSalary(e)}*/}
+				{/*/>*/}
 			</Flex>
 			<FilledButton
 				fullWidth

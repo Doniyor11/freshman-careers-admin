@@ -4,14 +4,22 @@ import { devtools } from "zustand/middleware"
 import { IInitialState, IResponseFilterStore } from "./types.ts"
 
 const initialState: IInitialState = {
-	search: undefined,
+	companyId: undefined,
+	status: undefined,
+	date: [null, null],
 }
 
 export const useResponseFilterStore = create<IResponseFilterStore>()(
 	devtools((set) => ({
 		...initialState,
-		setSearch: (e) => {
-			set({ search: e })
+		setCompanyId: (e) => {
+			set({ companyId: e })
+		},
+		setStatus: (e) => {
+			set({ status: e })
+		},
+		setDate: (e) => {
+			set({ date: e })
 		},
 	})),
 )
