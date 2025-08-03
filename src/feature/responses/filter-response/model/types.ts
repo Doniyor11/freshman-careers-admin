@@ -1,7 +1,11 @@
 export interface IInitialState {
-	search: string | undefined
+	companyId: string | undefined
+	status: string | undefined
+	date: [Date | null, Date | null]
 }
 
 export interface IResponseFilterStore extends IInitialState {
-	setSearch: (search: string | undefined) => void
+	setCompanyId: (companyId: string) => void
+	setStatus: (status: string) => void
+	setDate: (date: [Date | null, Date | null]) => void
 }

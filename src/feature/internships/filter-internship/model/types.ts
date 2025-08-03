@@ -3,7 +3,7 @@ export interface IInitialState {
 	education: string | undefined
 	salary: string | undefined
 	search: string | undefined
-	date: Date | null
+	date: [Date | null, Date | null]
 }
 
 export interface IApplicationFilterStore extends IInitialState {
@@ -11,5 +11,5 @@ export interface IApplicationFilterStore extends IInitialState {
 	setEducation: (education: string | undefined) => void
 	setSalary: (salary: string | undefined) => void
 	setSearch: (search: string | undefined) => void
-	setDate: (date: Date | null) => void
+	setDate: (date: [Date | null, Date | null]) => void
 }

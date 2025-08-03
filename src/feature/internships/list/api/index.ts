@@ -6,11 +6,13 @@ import { apiKeys } from "@/shared/constants/api-keys.ts"
 export const getInternshipsApi = async (params?: IInternshipParam) => {
 	const response = await clientApi.get(apiKeys.internships, {
 		params: {
-			name: params?.name,
+			title: params?.title,
+			start_date_min: params?.start_date_min,
+			start_date_max: params?.start_date_max,
 			format: params?.format,
 			education: params?.education,
-			salary: params?.salary,
-			date: params?.date,
+			limit: params?.limit,
+			offset: params?.offset,
 		},
 	})
 	return response?.data

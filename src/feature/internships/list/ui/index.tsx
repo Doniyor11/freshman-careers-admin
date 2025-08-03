@@ -1,7 +1,9 @@
 import { FilterInternship } from "@/feature"
 import { useInternshipDeleteStore } from "@/feature/internships/delete/model"
 import { InternshipDelete } from "@/feature/internships/delete/ui"
+import { useApplicationFilterStore } from "@/feature/internships/filter-internship/model"
 import { Container, Flex, Grid, Menu, Text } from "@mantine/core"
+import { useDebouncedValue } from "@mantine/hooks"
 import dayjs from "dayjs"
 import { useRouter } from "next/router"
 import React from "react"
@@ -18,11 +20,25 @@ import s from "./internship-profile.module.scss"
 export const InternshipList = () => {
 	const router = useRouter()
 
+	const [format, education, search, date] = useApplicationFilterStore((s) => [
+		s.format,
+		s.education,
+		s.search,
+		s.date,
+	])
+	const [debouncedTitle] = useDebouncedValue(search, 200)
+
 	const [setInternshipDelete, setInternshipDeleteId] = useInternshipDeleteStore(
 		(s) => [s.setInternshipDelete, s.setInternshipDeleteId],
 	)
 
-	const { data } = useGetInternshipsQuery()
+	const { data } = useGetInternshipsQuery({
+		format,
+		education,
+		title: debouncedTitle ? debouncedTitle : undefined,
+		start_date_min: date[0] ? dayjs(date[0]).format("YYYY-MM-DD") : undefined,
+		start_date_max: date[1] ? dayjs(date[1]).format("YYYY-MM-DD") : undefined,
+	})
 	return (
 		<>
 			<Container

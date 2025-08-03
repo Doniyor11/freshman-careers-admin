@@ -23,9 +23,12 @@ export interface IGetInternship {
 }
 
 export interface IInternshipParam {
-	name?: string
-	format?: string
+	title?: string
+	start_date_min?: any
+	start_date_max?: any
 	education?: string
-	salary?: string
-	date?: Date | null
+	format?: string
+	only_titles?: boolean
+	limit?: number
+	offset?: number
 }
