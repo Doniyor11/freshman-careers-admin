@@ -4,10 +4,11 @@ import { useCompanyEditStore } from "@/feature/companies/edit/model"
 import { useGetCompanyQuery } from "@/feature/companies/list/api/query.ts"
 import { Button, FileButton, Text } from "@mantine/core"
 import Image from "next/image"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
 
 import ImageGallery from "@/shared/assets/images/gallery.png"
+import { EnvKeys } from "@/shared/constants/env.ts"
 import { Input, Modal } from "@/shared/ui"
 
 import s from "./styles.module.scss"
@@ -21,7 +22,10 @@ export const CompanyEdit = () => {
 			s.setCompanyId,
 		])
 	const [file, setFile] = useState<File | null>(null)
-	const imageUrl = file ? URL.createObjectURL(file) : null
+	const imageUrl = useMemo(
+		() => (file ? URL.createObjectURL(file) : null),
+		[file],
+	)
 
 	const {
 		reset,
@@ -39,10 +43,13 @@ export const CompanyEdit = () => {
 	}
 
 	const { data: DefaultValue } = useGetCompanyQuery(companyId)
+
 	useEffect(() => {
-		reset({
-			name: DefaultValue?.name,
-		})
+		if (DefaultValue) {
+			reset({
+				name: DefaultValue.name,
+			})
+		}
 	}, [DefaultValue])
 
 	const { mutate, isPending } = useEditCompanyQuery(onClose)
@@ -55,12 +62,18 @@ export const CompanyEdit = () => {
 		})
 	}
 
+	const displayedImage = file
+		? imageUrl
+		: DefaultValue?.image
+		? `${EnvKeys.NEXT_HOST}/${DefaultValue.image}`
+		: ImageGallery.src
+
 	return (
 		<Modal size={682} opened={companyEdit} onClose={onClose}>
 			<Text className={s.modalTitle}>Edit the company</Text>
 			<div className={s.imageWrapper}>
 				<Image
-					src={`${file ? imageUrl : DefaultValue?.image || ImageGallery.src}`}
+					src={displayedImage as any}
 					alt={"image"}
 					width={150}
 					height={150}
