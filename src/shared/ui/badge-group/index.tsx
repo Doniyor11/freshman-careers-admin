@@ -23,7 +23,7 @@ export const BadgeGroup: React.FC<{
 					className={cx(s.filterBadge, {
 						[s.filterBadgeActive]: value === option,
 					})}
-					onClick={() => onChange(option)}
+					onClick={() => onChange(value === option ? undefined : option)}
 				>
 					{option}
 				</Badge>

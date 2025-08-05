@@ -72,6 +72,18 @@ const Card = ({ data }: ICardDataType) => {
 			status,
 		})
 	}
+
+	const getStatusColor = (status?: string) => {
+		switch (status) {
+			case "Rejected":
+				return "#CD0700"
+			case "Accepted":
+				return "#00C206"
+			case "Pending":
+			default:
+				return "#004B84"
+		}
+	}
 	return (
 		<Box className={s.internshipsCardWrapper}>
 			<Flex
@@ -84,7 +96,11 @@ const Card = ({ data }: ICardDataType) => {
 					<Text component={"h3"} className={s.internshipsCardTitle}>
 						{data?.hashed_id || "-"}
 					</Text>
-					<Text component={"h3"} className={s.status} c={"#004B84"}>
+					<Text
+						component={"h3"}
+						className={s.status}
+						c={getStatusColor(data?.status)}
+					>
 						{data?.status || "Pending"}
 					</Text>
 				</Flex>
@@ -100,14 +116,14 @@ const Card = ({ data }: ICardDataType) => {
 					<Flex align={"center"} gap={10}>
 						<Box className={s.internshipsCardIcon}>
 							<Image
-								src={`${EnvKeys.NEXT_HOST}/${data?.internship?.picture}`}
+								src={`${EnvKeys.NEXT_HOST}/${data?.company?.image}`}
 								alt={"iconAlt"}
 								width={32}
 								height={32}
 								unoptimized
 							/>
 						</Box>
-						<Text className={s.companyName}>Microsoft</Text>
+						<Text className={s.companyName}>{data?.company?.title}</Text>
 					</Flex>
 				</Flex>
 				<Flex direction={"column"} m={"1.5rem 0 1.5rem"} gap={"0.75rem"}>
