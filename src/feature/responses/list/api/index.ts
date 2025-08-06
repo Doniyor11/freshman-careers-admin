@@ -22,7 +22,7 @@ export const responseStatusApi = async (data: IResponseStatus) => {
 	const resData = {
 		status: data?.status,
 	}
-	const response = await clientApi.put(
+	const response = await clientApi.patch(
 		`${apiKeys.responses}/${data?.id}/status`,
 		resData,
 	)
