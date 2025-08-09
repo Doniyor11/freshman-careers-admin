@@ -10,10 +10,11 @@ import { DatePickerInput } from "@mantine/dates"
 import dayjs from "dayjs"
 import { useParams } from "next/navigation"
 import { useRouter } from "next/router"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
 
 import IconBack from "@/shared/assets/images/icon/chevron_backward5.svg"
+import { EnvKeys } from "@/shared/constants/env.ts"
 import { ImageUpload, Select } from "@/shared/ui"
 import { FilledButton } from "@/shared/ui/buttons"
 import { InputOutlined } from "@/shared/ui/inputs/input-outlined"
@@ -42,6 +43,28 @@ export const InternshipEdit = () => {
 		mode: "all",
 		resolver: yupResolver(EditInternshipScheme),
 	})
+
+	useEffect(() => {
+		reset({
+			company_id: DefaultValue?.company_id.toString(),
+			title: DefaultValue?.title,
+			payment_status: DefaultValue?.payment_status,
+			payment_amount: DefaultValue?.payment_amount,
+			payment_regularity: DefaultValue?.payment_regularity,
+			format: DefaultValue?.format,
+			education: DefaultValue?.education,
+			schedule: DefaultValue?.schedule,
+			working_hours: DefaultValue?.working_hours,
+			description: DefaultValue?.description,
+			requirements: DefaultValue?.requirements,
+			conditions: DefaultValue?.conditions,
+		})
+		setValue([
+			dayjs(DefaultValue?.internship_start_date).toDate(),
+			dayjs(DefaultValue?.internship_end_date).toDate(),
+		])
+	}, [DefaultValue])
+
 	const onClose = () => {
 		setFile(null)
 		reset({})
@@ -226,7 +249,7 @@ export const InternshipEdit = () => {
 									render={({ field }) => (
 										<Select
 											placeholder={"Working hours"}
-											data={["09:00-18:00 ", "10:00-19:00"]}
+											data={["09:00-18:00", "10:00-19:00"]}
 											{...field}
 										/>
 									)}
@@ -250,7 +273,23 @@ export const InternshipEdit = () => {
 						flex={"50%"}
 						gap={"1.5rem"}
 					>
-						<ImageUpload setUploadFile={setFile} />
+						<Controller
+							name={"picture"}
+							control={control}
+							render={({ field }) => (
+								<ImageUpload
+									setUploadFile={(file) => {
+										setFile(file)
+										field.onChange(file)
+									}}
+									defaultImage={
+										DefaultValue?.picture &&
+										`${EnvKeys.NEXT_HOST}/${DefaultValue?.picture}`
+									}
+								/>
+							)}
+						/>
+
 						<Flex direction={"column"}>
 							<Text component={"h3"} className={s.subTitle}>
 								Description

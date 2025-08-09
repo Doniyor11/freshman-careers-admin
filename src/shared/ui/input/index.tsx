@@ -15,7 +15,6 @@ interface InputIProps extends TextInputProps {
 	type?: React.HTMLInputTypeAttribute
 	className?: string
 	height?: string | number
-	error?: boolean
 	component?: any
 	mask?: any
 }
@@ -23,7 +22,6 @@ interface InputIProps extends TextInputProps {
 export const Input = forwardRef<HTMLInputElement, InputIProps>(
 	(
 		{
-			error,
 			height = 40,
 			component,
 			mask,
