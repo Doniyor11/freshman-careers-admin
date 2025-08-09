@@ -14,7 +14,7 @@ const PrivateRoute = ({ children }: { children: ReactNode }) => {
 	useEffect(() => {
 		if (!token) {
 			Cookies.remove(TOKEN.AUTH_TOKEN)
-			router.push("/login")
+			router.push("/signin")
 		}
 	}, [token, router])
 
