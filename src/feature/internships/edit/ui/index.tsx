@@ -116,7 +116,7 @@ export const InternshipEdit = () => {
 											placeholder={"Company"}
 											data={CompaniesData?.map((i: IGetCompanies) => ({
 												value: i.id.toString(),
-												label: i.name,
+												label: i.title,
 											}))}
 											{...field}
 										/>
