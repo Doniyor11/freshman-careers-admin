@@ -20,9 +20,12 @@ import { EnvKeys } from "@/shared/constants/env.ts"
 import { FilledButton } from "@/shared/ui/buttons"
 
 import s from "./companies.module.scss"
+import { useMediaQuery } from "@mantine/hooks"
 
 export const CompaniesList = () => {
 	const router = useRouter()
+	const matches = useMediaQuery('(max-width: 1024px)')
+	const matchesMobile = useMediaQuery('(max-width: 576px)')
 	const [setCompanyEdit, setCompanyId] = useCompanyEditStore((s) => [
 		s.setCompanyEdit,
 		s.setCompanyId,
@@ -50,38 +53,40 @@ export const CompaniesList = () => {
 		title: search as any,
 		internship_count_range: handleAvailableInternships(),
 	})
+	const spanValue = matchesMobile ? 12 : matches ? 6 : 4
+
 
 	return (
 		<>
-			<Container size={"1440px"} p={"3rem 1rem 7.25rem"} bg={"#FAFBFF"}>
+			<Container size={"1440px"} p={matchesMobile ? "1.5rem 1rem 3rem" : "3rem 1rem 7.25rem"} bg={"#FAFBFF"}>
 				<Grid>
-					<Grid.Col span={3}>
+					<Grid.Col span={matches ? 12 : 3}>
 						<FilterCompanies />
 					</Grid.Col>
-					<Grid.Col span={9}>
-						<Flex justify={"space-between"} align={"center"}>
+					<Grid.Col span={matches ? 12 : 9}>
+						<Flex justify={matchesMobile ? "flex-start" : "space-between"} align={"center"} mb={matchesMobile ? "1rem" : 0}>
 							<Text component={"h3"} className={s.companiesTitle}>
 								Companies
 							</Text>
 						</Flex>
 						{/* ------------ Card -------------	*/}
-						<Grid mt={"1.5rem"} gutter={"1.5rem"}>
+						<Grid mt={matchesMobile ? "1rem" : "1.5rem"} gutter={matchesMobile ? "1rem" : "1.5rem"}>
 							{data?.map((i: IGetCompanies) => (
-								<Grid.Col span={4}>
+								<Grid.Col span={spanValue} key={i?.id}>
 									<Box className={s.companiesCardWrapper}>
-										<Flex gap={"1rem"}>
+										<Flex gap={matchesMobile ? "0.75rem" : "1rem"} align={"flex-start"}>
 											<Box className={s.companiesCardIcon}>
 												{i?.image && (
 													<Image
 														src={`${EnvKeys.NEXT_HOST}/${i?.image}`}
 														alt="Company Logo"
-														width={48}
-														height={48}
+														width={matchesMobile ? 40 : 48}
+														height={matchesMobile ? 40 : 48}
 														unoptimized
 													/>
 												)}
 											</Box>
-											<Flex direction={"column"} gap={"0.5rem"}>
+											<Flex direction={"column"} gap={"0.5rem"} style={{flex: 1}}>
 												<Text component={"h3"} className={s.companiesCardTitle}>
 													{i?.name}
 												</Text>
@@ -99,35 +104,37 @@ export const CompaniesList = () => {
 											</Flex>
 										</Flex>
 										<Flex
-											mt={"1.5rem"}
+											mt={matchesMobile ? "1rem" : "1.5rem"}
 											justify={"space-between"}
-											gap={"0.5rem"}
+											gap={matchesMobile ? "0.375rem" : "0.5rem"}
 										>
 											<FilledButton
-												flex={"auto"}
-												h={"2.75rem"}
+												h={matchesMobile ? "2.5rem" : "2.75rem"}
 												onClick={() => router.push(`/internships`)}
+												flex={'1'}
 											>
 												Internships
 											</FilledButton>
-											<ActionIcon
-												className={s.actionIcon}
-												onClick={() => {
-													setCompanyEdit(true)
-													setCompanyId(i?.id)
-												}}
-											>
-												<Image2 />
-											</ActionIcon>
-											<ActionIcon
-												className={s.actionIcon}
-												onClick={() => {
-													setCompanyDelete(true)
-													setCompanyDeleteId(i?.id)
-												}}
-											>
-												<Image3 />
-											</ActionIcon>
+											<Flex gap={matchesMobile ? "0.375rem" : "0.5rem"} justify={matchesMobile ? "center" : "flex-end"}>
+												<ActionIcon
+													className={s.actionIcon}
+													onClick={() => {
+														setCompanyEdit(true)
+														setCompanyId(i?.id)
+													}}
+												>
+													<Image2 />
+												</ActionIcon>
+												<ActionIcon
+													className={s.actionIcon}
+													onClick={() => {
+														setCompanyDelete(true)
+														setCompanyDeleteId(i?.id)
+													}}
+												>
+													<Image3 />
+												</ActionIcon>
+											</Flex>
 										</Flex>
 									</Box>
 								</Grid.Col>

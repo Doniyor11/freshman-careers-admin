@@ -1,42 +1,22 @@
 @import url("https://fonts.cdnfonts.com/css/graphik-trial");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Graphik Trial", sans-serif !important;
 }
+
 body {
 	background-color: #fafbff !important;
+	font-size: 16px;
+	line-height: 1.5;
+	overflow-x: hidden;
 }
 
 a {
 	text-decoration: none;
-}
-
-.navbarLogoBox {
-	cursor: pointer;
-
-	p {
-		color: #004b84;
-		font-size: 1.25rem;
-		font-style: normal;
-		font-weight: 500;
-		line-height: normal;
-		letter-spacing: 0.125rem;
-		text-transform: uppercase;
-		padding-right: 0.4rem;
-	}
-
-	span {
-		color: #004b84;
-		font-size: 1rem;
-		font-style: normal;
-		font-weight: 300;
-		line-height: normal;
-		letter-spacing: 0.58rem;
-		text-transform: uppercase;
-	}
 }
 
 .input-custom {
@@ -45,6 +25,15 @@ a {
 		border: 1px solid #e2eaff;
 		background: #fafbff;
 		height: 3.5rem;
+
+		@media screen and (max-width: 768px) {
+			height: 3rem;
+		}
+
+		@media screen and (max-width: 480px) {
+			height: 2.75rem;
+		}
+
 		&::placeholder {
 			color: #848f98;
 			font-size: 1rem;
@@ -52,6 +41,17 @@ a {
 			font-weight: 400;
 			line-height: 1.25rem;
 			letter-spacing: -0.02rem;
+
+			@media screen and (max-width: 480px) {
+				font-size: 0.875rem;
+			}
 		}
+	}
+}
+
+// Text responsive adjustments
+.mantine-Text-root {
+	@media screen and (max-width: 480px) {
+		word-break: break-word;
 	}
 }

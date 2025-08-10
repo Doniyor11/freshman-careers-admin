@@ -16,3 +16,29 @@
 		}
 	}
 }
+
+.navbarLogoBox {
+	cursor: pointer;
+}
+
+.desktopNav {
+	@media (max-width: 768px) {
+		display: none;
+	}
+}
+
+.mobileNav {
+	padding-top: 1rem;
+
+	.link {
+		font-size: 18px;
+		padding: 12px 0;
+		border-bottom: 1px solid #e2eaff;
+	}
+}
+
+.drawerTitle {
+	color: #001c31;
+	font-size: 18px;
+	font-weight: 600;
+}

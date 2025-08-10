@@ -1,25 +1,31 @@
-import { FilterInternship } from "@/feature"
-import { useInternshipDeleteStore } from "@/feature/internships/delete/model"
-import { InternshipDelete } from "@/feature/internships/delete/ui"
-import { useApplicationFilterStore } from "@/feature/internships/filter-internship/model"
+import { FilterInternship } from "@/feature";
+import { useInternshipDeleteStore } from "@/feature/internships/delete/model";
+import { InternshipDelete } from "@/feature/internships/delete/ui";
+import { useApplicationFilterStore } from "@/feature/internships/filter-internship/model";
 import { Container, Flex, Grid, Menu, Text } from "@mantine/core"
-import { useDebouncedValue } from "@mantine/hooks"
-import dayjs from "dayjs"
-import { useRouter } from "next/router"
-import React from "react"
+import { useDebouncedValue, useMediaQuery } from "@mantine/hooks"
+import dayjs from "dayjs";
+import { useRouter } from "next/router";
+import React from "react";
 
-import Icon2 from "@/shared/assets/images/icon/chevron_backward3.svg"
-import Icon3 from "@/shared/assets/images/icon/chevron_backward-small.svg"
-import { EnvKeys } from "@/shared/constants/env.ts"
-import { InternshipsCard } from "@/shared/ui"
 
-import { useGetInternshipsQuery } from "../api/query.ts"
-import { IGetInternship } from "../api/types.ts"
-import s from "./internship-profile.module.scss"
+
+import Icon2 from "@/shared/assets/images/icon/chevron_backward3.svg";
+import Icon3 from "@/shared/assets/images/icon/chevron_backward-small.svg";
+import { EnvKeys } from "@/shared/constants/env.ts";
+import { InternshipsCard } from "@/shared/ui";
+
+
+
+import { useGetInternshipsQuery } from "../api/query.ts";
+import { IGetInternship } from "../api/types.ts";
+import s from "./internship-profile.module.scss";
+
 
 export const InternshipList = () => {
 	const router = useRouter()
-
+	const matches = useMediaQuery('(max-width: 1024px)')
+	const matchesMobile = useMediaQuery('(max-width: 576px)')
 	const [format, education, search, date] = useApplicationFilterStore((s) => [
 		s.format,
 		s.education,
@@ -39,6 +45,9 @@ export const InternshipList = () => {
 		start_date_min: date[0] ? dayjs(date[0]).format("YYYY-MM-DD") : undefined,
 		start_date_max: date[1] ? dayjs(date[1]).format("YYYY-MM-DD") : undefined,
 	})
+
+	const spanValue = matchesMobile ? 12 : matches ? 6 : 4
+
 	return (
 		<>
 			<Container
@@ -48,10 +57,10 @@ export const InternshipList = () => {
 				bg={"#FAFBFF"}
 			>
 				<Grid>
-					<Grid.Col span={3}>
+					<Grid.Col span={matches ? 12 : 3}>
 						<FilterInternship />
 					</Grid.Col>
-					<Grid.Col span={9}>
+					<Grid.Col span={matches ? 12 : 9}>
 						<Flex justify={"space-between"} align={"center"}>
 							<Text component={"h3"} className={s.myApplicationsTitle}>
 								My Applications
@@ -97,7 +106,7 @@ export const InternshipList = () => {
 						{/* ------------ Card -------------	*/}
 						<Grid mt={"1.5rem"} gutter={"1.5rem"}>
 							{data?.map((i: IGetInternship, index: number) => (
-								<Grid.Col span={4} key={index}>
+								<Grid.Col span={spanValue} key={index}>
 									<InternshipsCard
 										companyName={i?.company_title}
 										imageSrc={`${EnvKeys.NEXT_HOST}/${i?.picture}`}
