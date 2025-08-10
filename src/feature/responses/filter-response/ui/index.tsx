@@ -36,8 +36,8 @@ export const FilterResponse = () => {
 					onChange={(e: any) => setCompanyId(e)}
 					data={
 						CompanyData?.map((i: IGetCompanies) => ({
-							value: i?.id?.toString(),
-							label: i?.name,
+							value: i?.id ? String(i.id) : "",
+							label: i?.title || "Untitled",
 						})) || []
 					}
 				/>

@@ -87,8 +87,8 @@ export const InternshipAdd = () => {
 										<Select
 											placeholder={"Company"}
 											data={CompaniesData?.map((i: IGetCompanies) => ({
-												value: i.id.toString(),
-												label: i.name,
+												value: i?.id ? String(i?.id) : "",
+												label: i?.title || "Untitled",
 											}))}
 											{...field}
 										/>
