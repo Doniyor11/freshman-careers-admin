@@ -1,3 +1,7 @@
+.profileContainer{
+  padding: 0 2rem;
+}
+
 .myApplicationsTitle {
 	color: #001c31;
 	text-align: center;
@@ -5,6 +9,11 @@
 	font-style: normal;
 	font-weight: 600;
 	line-height: 3rem;
+  @media screen and (max-width: 1024px) {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+  }
 }
 
 .profileDropdown {

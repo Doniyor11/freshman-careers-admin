@@ -1,57 +1,64 @@
 .modalTitle {
-	color: #001c31;
-	font-size: 40px;
-	font-weight: 500;
-	line-height: 48px;
+  color: #001c31;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  @media screen and (max-width: 1024px) {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
 }
 
 .fileBtn {
-	width: 100%;
-	height: 48px;
-	padding: 0 24px;
-	border-radius: 8px;
-	border: 1px solid #004c84;
-	background: none;
+  width: 100%;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 8px;
+  border: 1px solid #004c84;
+  background: none;
+  color: #004c84;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
 
-	color: #004c84;
-	font-size: 16px;
-	font-weight: 600;
-	line-height: 20px;
-
-	&:hover {
-		background: none;
-		color: #004c84;
-	}
+  &:hover {
+    background: none;
+    color: #004c84;
+  }
 }
 
 .imageWrapper {
-	width: 100%;
-	border-radius: 8px;
-	border: 1px solid #e2eaff;
-	margin: 32px 0 12px;
-	height: 256px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #e2eaff;
+  margin: 32px 0 12px;
+  height: 256px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	img {
-		border-radius: 16px;
-		object-fit: cover;
-	}
+  img {
+    border-radius: 16px;
+    object-fit: cover;
+  }
 }
 
 .saveBtn {
-	border-radius: 8px;
-	background: #004c84;
-	width: 100%;
-	height: 56px;
-	margin-top: 64px;
+  border-radius: 8px;
+  background: #004c84;
+  width: 100%;
+  height: 56px;
+  margin-top: 64px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: normal;
 
-	font-size: 20px;
-	font-weight: 600;
-	line-height: normal;
-
-	&:hover {
-		background: #004c84;
-	}
+  &:hover {
+    background: #004c84;
+  }
+  @media screen and (max-width: 1024px){
+    margin-top: 24px;
+    height: 48px;
+    font-size: 16px;
+  }
 }
