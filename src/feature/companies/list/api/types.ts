@@ -1,7 +1,7 @@
 export interface IGetCompanies {
 	id: number
 	image: string
-	name: string
+	title: string
 	internship_count: number
 }
 
