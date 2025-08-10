@@ -88,7 +88,7 @@ export const CompaniesList = () => {
 											</Box>
 											<Flex direction={"column"} gap={"0.5rem"} style={{flex: 1}}>
 												<Text component={"h3"} className={s.companiesCardTitle}>
-													{i?.name}
+													{i?.title}
 												</Text>
 												{!!i?.internship_count && (
 													<Text
