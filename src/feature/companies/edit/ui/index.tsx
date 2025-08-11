@@ -2,7 +2,7 @@ import { IAddCompany } from "@/feature/companies/add/api/types.ts"
 import { useEditCompanyQuery } from "@/feature/companies/edit/api/query.ts"
 import { useCompanyEditStore } from "@/feature/companies/edit/model"
 import { useGetCompanyQuery } from "@/feature/companies/list/api/query.ts"
-import { Button, FileButton, Text } from "@mantine/core"
+import { Button, FileButton, Text, Textarea } from "@mantine/core"
 import Image from "next/image"
 import React, { useEffect, useMemo, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
@@ -47,7 +47,8 @@ export const CompanyEdit = () => {
 	useEffect(() => {
 		if (DefaultValue) {
 			reset({
-				name: DefaultValue.name,
+				name: DefaultValue.title,
+				description: DefaultValue.description,
 			})
 		}
 	}, [DefaultValue])
@@ -59,6 +60,7 @@ export const CompanyEdit = () => {
 			image: file,
 			id: companyId,
 			name: data?.name,
+			description: data?.description,
 		})
 	}
 
@@ -94,6 +96,20 @@ export const CompanyEdit = () => {
 					control={control}
 					render={({ field }) => (
 						<Input label={"Company name"} mt={24} {...field} />
+					)}
+				/>
+
+				<Controller
+					name={"description"}
+					control={control}
+					render={({ field }) => (
+						<Textarea
+							mt={24}
+							rows={10}
+							placeholder={"Company description"}
+							className={s.textArea}
+							{...field}
+						/>
 					)}
 				/>
 

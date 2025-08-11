@@ -5,6 +5,10 @@ export default function Document() {
 	return (
 		<Html lang="en">
 			<Head>
+				<link
+					href="https://fonts.cdnfonts.com/css/graphik-trial"
+					rel="stylesheet"
+				/>
 				<ColorSchemeScript />
 			</Head>
 			<body>

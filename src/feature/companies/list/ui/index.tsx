@@ -10,6 +10,7 @@ import { useCompaniesFilterStore } from "@/feature/companies/filter-companies/mo
 import { useGetCompaniesQuery } from "@/feature/companies/list/api/query.ts"
 import { IGetCompanies } from "@/feature/companies/list/api/types.ts"
 import { ActionIcon, Box, Container, Flex, Grid, Text } from "@mantine/core"
+import { useMediaQuery } from "@mantine/hooks"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import React from "react"
@@ -20,12 +21,11 @@ import { EnvKeys } from "@/shared/constants/env.ts"
 import { FilledButton } from "@/shared/ui/buttons"
 
 import s from "./companies.module.scss"
-import { useMediaQuery } from "@mantine/hooks"
 
 export const CompaniesList = () => {
 	const router = useRouter()
-	const matches = useMediaQuery('(max-width: 1024px)')
-	const matchesMobile = useMediaQuery('(max-width: 576px)')
+	const matches = useMediaQuery("(max-width: 1024px)")
+	const matchesMobile = useMediaQuery("(max-width: 576px)")
 	const [setCompanyEdit, setCompanyId] = useCompanyEditStore((s) => [
 		s.setCompanyEdit,
 		s.setCompanyId,
@@ -55,26 +55,39 @@ export const CompaniesList = () => {
 	})
 	const spanValue = matchesMobile ? 12 : matches ? 6 : 4
 
-
 	return (
 		<>
-			<Container size={"1440px"} p={matchesMobile ? "1.5rem 1rem 3rem" : "3rem 1rem 7.25rem"} bg={"#FAFBFF"}>
+			<Container
+				size={"1440px"}
+				p={matchesMobile ? "1.5rem 1rem 3rem" : "3rem 1rem 7.25rem"}
+				bg={"#FAFBFF"}
+			>
 				<Grid>
 					<Grid.Col span={matches ? 12 : 3}>
 						<FilterCompanies />
 					</Grid.Col>
 					<Grid.Col span={matches ? 12 : 9}>
-						<Flex justify={matchesMobile ? "flex-start" : "space-between"} align={"center"} mb={matchesMobile ? "1rem" : 0}>
+						<Flex
+							justify={matchesMobile ? "flex-start" : "space-between"}
+							align={"center"}
+							mb={matchesMobile ? "1rem" : 0}
+						>
 							<Text component={"h3"} className={s.companiesTitle}>
 								Companies
 							</Text>
 						</Flex>
 						{/* ------------ Card -------------	*/}
-						<Grid mt={matchesMobile ? "1rem" : "1.5rem"} gutter={matchesMobile ? "1rem" : "1.5rem"}>
+						<Grid
+							mt={matchesMobile ? "1rem" : "1.5rem"}
+							gutter={matchesMobile ? "1rem" : "1.5rem"}
+						>
 							{data?.map((i: IGetCompanies) => (
 								<Grid.Col span={spanValue} key={i?.id}>
 									<Box className={s.companiesCardWrapper}>
-										<Flex gap={matchesMobile ? "0.75rem" : "1rem"} align={"flex-start"}>
+										<Flex
+											gap={matchesMobile ? "0.75rem" : "1rem"}
+											align={"flex-start"}
+										>
 											<Box className={s.companiesCardIcon}>
 												{i?.image && (
 													<Image
@@ -86,7 +99,11 @@ export const CompaniesList = () => {
 													/>
 												)}
 											</Box>
-											<Flex direction={"column"} gap={"0.5rem"} style={{flex: 1}}>
+											<Flex
+												direction={"column"}
+												gap={"0.5rem"}
+												style={{ flex: 1 }}
+											>
 												<Text component={"h3"} className={s.companiesCardTitle}>
 													{i?.title}
 												</Text>
@@ -111,11 +128,14 @@ export const CompaniesList = () => {
 											<FilledButton
 												h={matchesMobile ? "2.5rem" : "2.75rem"}
 												onClick={() => router.push(`/internships`)}
-												flex={'1'}
+												flex={"1"}
 											>
 												Internships
 											</FilledButton>
-											<Flex gap={matchesMobile ? "0.375rem" : "0.5rem"} justify={matchesMobile ? "center" : "flex-end"}>
+											<Flex
+												gap={matchesMobile ? "0.375rem" : "0.5rem"}
+												justify={matchesMobile ? "center" : "flex-end"}
+											>
 												<ActionIcon
 													className={s.actionIcon}
 													onClick={() => {

@@ -1,31 +1,26 @@
-import { FilterInternship } from "@/feature";
-import { useInternshipDeleteStore } from "@/feature/internships/delete/model";
-import { InternshipDelete } from "@/feature/internships/delete/ui";
-import { useApplicationFilterStore } from "@/feature/internships/filter-internship/model";
+import { FilterInternship } from "@/feature"
+import { useInternshipDeleteStore } from "@/feature/internships/delete/model"
+import { InternshipDelete } from "@/feature/internships/delete/ui"
+import { useApplicationFilterStore } from "@/feature/internships/filter-internship/model"
 import { Container, Flex, Grid, Menu, Text } from "@mantine/core"
 import { useDebouncedValue, useMediaQuery } from "@mantine/hooks"
-import dayjs from "dayjs";
-import { useRouter } from "next/router";
-import React from "react";
+import dayjs from "dayjs"
+import { useRouter } from "next/router"
+import React from "react"
 
+import Icon2 from "@/shared/assets/images/icon/chevron_backward3.svg"
+import Icon3 from "@/shared/assets/images/icon/chevron_backward-small.svg"
+import { EnvKeys } from "@/shared/constants/env.ts"
+import { InternshipsCard } from "@/shared/ui"
 
-
-import Icon2 from "@/shared/assets/images/icon/chevron_backward3.svg";
-import Icon3 from "@/shared/assets/images/icon/chevron_backward-small.svg";
-import { EnvKeys } from "@/shared/constants/env.ts";
-import { InternshipsCard } from "@/shared/ui";
-
-
-
-import { useGetInternshipsQuery } from "../api/query.ts";
-import { IGetInternship } from "../api/types.ts";
-import s from "./internship-profile.module.scss";
-
+import { useGetInternshipsQuery } from "../api/query.ts"
+import { IGetInternship } from "../api/types.ts"
+import s from "./internship-profile.module.scss"
 
 export const InternshipList = () => {
 	const router = useRouter()
-	const matches = useMediaQuery('(max-width: 1024px)')
-	const matchesMobile = useMediaQuery('(max-width: 576px)')
+	const matches = useMediaQuery("(max-width: 1024px)")
+	const matchesMobile = useMediaQuery("(max-width: 576px)")
 	const [format, education, search, date] = useApplicationFilterStore((s) => [
 		s.format,
 		s.education,
