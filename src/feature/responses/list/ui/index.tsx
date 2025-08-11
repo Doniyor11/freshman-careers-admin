@@ -41,18 +41,18 @@ export const ResponsesList = () => {
 					</Flex>
 				</Grid.Col>
 				<Grid.Col span={9}>
+					<Flex mb={"2.5rem"}>
+						<Text component={"h1"} className={s.title}>
+							Responses
+						</Text>
+					</Flex>
 					{/*	 -----------  Grid start ------------ */}
 					<Grid>
-						<Grid.Col span={4}>
-							<Flex mb={"2.5rem"}>
-								<Text component={"h1"} className={s.title}>
-									Responses
-								</Text>
-							</Flex>
-							{data?.map((item: IGetResponse, index: number) => (
-								<Card data={item} key={index} />
-							))}
-						</Grid.Col>
+						{data?.map((item: IGetResponse, index: number) => (
+							<Grid.Col span={4} key={index}>
+								<Card data={item} />
+							</Grid.Col>
+						))}
 					</Grid>
 					{/*	 -----------  Grid end ------------ */}
 				</Grid.Col>

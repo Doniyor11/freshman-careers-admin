@@ -83,13 +83,6 @@ const SignIn = () => {
 						>
 							Sign in
 						</Button>
-						<Button
-							mt={12}
-							className={cx(s.formBtn, s.orange)}
-							onClick={() => router.push("/signup")}
-						>
-							Sign up
-						</Button>
 					</form>
 				</div>
 			</Flex>
