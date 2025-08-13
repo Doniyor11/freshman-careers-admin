@@ -5,8 +5,8 @@ export interface IEditInternships {
 	internship_start_date?: any
 	internship_end_date?: any
 	payment_status: string
-	payment_amount: number
-	payment_regularity: string
+	payment_amount?: number
+	payment_regularity?: string
 	education: string
 	format: string
 	schedule: string
