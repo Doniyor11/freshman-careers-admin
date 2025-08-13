@@ -112,64 +112,70 @@ const Card = ({ data }: ICardDataType) => {
 				</Box>
 			</Flex>
 			<Box className={s.internshipsCardContent}>
-				<Flex justify={"space-between"} align={"center"}>
-					<Flex align={"center"} gap={10}>
-						<Box className={s.internshipsCardIcon}>
-							<Image
-								src={`${EnvKeys.NEXT_HOST}/${data?.company?.image}`}
-								alt={"iconAlt"}
-								width={32}
-								height={32}
-								unoptimized
-							/>
-						</Box>
-						<Text className={s.companyName}>{data?.company?.title}</Text>
+				<Box>
+					<Flex justify={"space-between"} align={"center"}>
+						<Flex align={"center"} gap={10}>
+							<Box className={s.internshipsCardIcon}>
+								<Image
+									src={`${EnvKeys.NEXT_HOST}/${data?.company?.image}`}
+									alt={"iconAlt"}
+									width={32}
+									height={32}
+									unoptimized
+								/>
+							</Box>
+							<Text className={s.companyName}>{data?.company?.title}</Text>
+						</Flex>
 					</Flex>
-				</Flex>
-				<Flex direction={"column"} m={"1.5rem 0 1.5rem"} gap={"0.75rem"}>
-					<Text component={"h3"} className={s.internshipsCardTitle}>
-						{data?.internship?.title || "-"}
-					</Text>
-					<Text component={"p"} className={s.internshipsCardDescription}>
-						{data?.internship?.description || "-"}
-					</Text>
-				</Flex>
-				<Flex direction={"column"} mb={"1.5rem"}>
-					<Text component={"p"} className={s.internshipsCardDescription}>
-						Internship Dates:
-					</Text>
-					<Text component={"p"} className={s.internshipsCardDate}>
-						{`${data?.internship?.internship_start_date} - ${data?.internship?.internship_end_date}`}
-					</Text>
-				</Flex>
-				<FilledButton
-					fullWidth
-					h={"2.75rem"}
-					className={s.internshipsCardButton}
-					onClick={() => router.push("/internships")}
-				>
-					View Summary
-				</FilledButton>
-				<Flex justify={"space-between"} gap={"0.5rem"} mt={"0.5rem"}>
-					<OutlineButton
+					<Flex direction={"column"} m={"1.5rem 0 1.5rem"} gap={"0.75rem"}>
+						<Text component={"h3"} className={s.internshipsCardTitle}>
+							{data?.internship?.title || "-"}
+						</Text>
+						<Text component={"p"} className={s.internshipsCardDescription}>
+							{data?.internship?.description || "-"}
+						</Text>
+					</Flex>
+					<Flex direction={"column"} mb={"1.5rem"}>
+						<Text component={"p"} className={s.internshipsCardDescription}>
+							Internship Dates:
+						</Text>
+						<Text component={"p"} className={s.internshipsCardDate}>
+							{`${data?.internship?.internship_start_date} - ${data?.internship?.internship_end_date}`}
+						</Text>
+					</Flex>
+				</Box>
+				<Box>
+					<FilledButton
 						fullWidth
 						h={"2.75rem"}
-						className={s.buttonOutline}
-						loading={isPending}
-						onClick={() => onChangeStatus("Accepted")}
+						className={s.internshipsCardButton}
+						onClick={() => router.push(`/internships/${data?.internship_id}`)}
 					>
-						Accept
-					</OutlineButton>
-					<OutlineButton
-						fullWidth
-						h={"2.75rem"}
-						className={s.buttonOutline}
-						loading={isPending}
-						onClick={() => onChangeStatus("Rejected")}
-					>
-						Reject
-					</OutlineButton>
-				</Flex>
+						View Summary
+					</FilledButton>
+					<Flex justify={"space-between"} gap={"0.5rem"} mt={"0.5rem"}>
+						<OutlineButton
+							fullWidth
+							h={"2.75rem"}
+							className={s.buttonOutline}
+							loading={isPending}
+							onClick={() => onChangeStatus("Accepted")}
+							disabled={data?.status === "Accepted"}
+						>
+							Accept
+						</OutlineButton>
+						<OutlineButton
+							fullWidth
+							h={"2.75rem"}
+							className={s.buttonOutline}
+							loading={isPending}
+							onClick={() => onChangeStatus("Rejected")}
+							disabled={data?.status === "Rejected"}
+						>
+							Reject
+						</OutlineButton>
+					</Flex>
+				</Box>
 			</Box>
 		</Box>
 	)

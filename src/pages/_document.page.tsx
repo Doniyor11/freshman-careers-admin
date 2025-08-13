@@ -5,6 +5,7 @@ export default function Document() {
 	return (
 		<Html lang="en">
 			<Head>
+				<link rel="icon" href="/favicon.png" />
 				<link
 					href="https://fonts.cdnfonts.com/css/graphik-trial"
 					rel="stylesheet"

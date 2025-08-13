@@ -178,7 +178,13 @@ export const InternshipAdd = () => {
 									render={({ field }) => (
 										<Select
 											placeholder={"Education"}
-											data={["Graduate", "3rd year", "1-2 courses", "Absent"]}
+											data={[
+												"High School",
+												"High School Graduate",
+												"College 1st - 2nd Year",
+												"College 3rd - 4th Year",
+												"College Graduate",
+											]}
 											{...field}
 										/>
 									)}

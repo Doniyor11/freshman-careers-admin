@@ -66,7 +66,13 @@ export const FilterInternship = () => {
 				/>
 				<BadgeGroup
 					label={"Education"}
-					options={["Graduate", "3rd year", "1-2 courses", "Absent"]}
+					options={[
+						"High School",
+						"High School Graduate",
+						"College 1st - 2nd Year",
+						"College 3rd - 4th Year",
+						"College Graduate",
+					]}
 					value={education}
 					onChange={(e: any) => setEducation(e)}
 				/>
