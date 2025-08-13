@@ -14,7 +14,9 @@ export const addInternshipApi = async (data: IInternships) => {
 	formData.append("payment_status", data?.payment_status)
 	if (data?.payment_status === "Present") {
 		formData.append("payment_amount", String(data?.payment_amount))
-		formData.append("payment_regularity", data?.payment_regularity)
+		if (data?.payment_regularity) {
+			formData.append("payment_regularity", data?.payment_regularity)
+		}
 	}
 
 	formData.append("education", data?.education)
