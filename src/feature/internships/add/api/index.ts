@@ -1,7 +1,10 @@
-import clientApi from "@/shared/api/base-api.ts"
-import { apiKeys } from "@/shared/constants/api-keys.ts"
+import clientApi from "@/shared/api/base-api.ts";
+import { apiKeys } from "@/shared/constants/api-keys.ts";
 
-import { IInternships } from "./types.ts"
+
+
+import { IInternships } from "./types.ts";
+
 
 export const addInternshipApi = async (data: IInternships) => {
 	const formData = new FormData()
@@ -14,7 +17,9 @@ export const addInternshipApi = async (data: IInternships) => {
 	formData.append("payment_status", data?.payment_status)
 	if (data?.payment_status === "Present") {
 		formData.append("payment_amount", String(data?.payment_amount))
-		formData.append("payment_regularity", data?.payment_regularity)
+		if (data?.payment_regularity) {
+			formData.append("payment_regularity", data?.payment_regularity)
+		}
 	}
 
 	formData.append("education", data?.education)
