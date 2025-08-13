@@ -1,5 +1,5 @@
-import { ActionIcon, Box, Container, Flex, Burger, Drawer } from "@mantine/core"
-import { useMediaQuery, useDisclosure } from "@mantine/hooks"
+import { ActionIcon, Box, Burger, Container, Drawer, Flex } from "@mantine/core"
+import { useDisclosure, useMediaQuery } from "@mantine/hooks"
 import cx from "clsx"
 import Cookies from "js-cookie"
 import Image from "next/image"
@@ -15,7 +15,7 @@ import s from "./styles.module.scss"
 
 export const Navbar = () => {
 	const router = useRouter()
-	const isMobile = useMediaQuery('(max-width: 768px)')
+	const isMobile = useMediaQuery("(max-width: 768px)")
 	const [opened, { open, close }] = useDisclosure(false)
 
 	const handleLogout = () => {
@@ -55,7 +55,7 @@ export const Navbar = () => {
 		</>
 	)
 
-		return (
+	return (
 		<>
 			<Box className={s.profileContainer} p={"0.5rem 0"}>
 				<Container size={"1440px"}>

@@ -103,6 +103,8 @@
 .internshipsCardWrapper {
 	border-radius: 0.5rem;
 	background: #fff;
+	height: 100%;
+	overflow: hidden;
 }
 
 .internshipsCardHead {
@@ -111,6 +113,10 @@
 
 .internshipsCardContent {
 	padding: 1.5rem;
+	height: calc(100% - 89px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
 	.companyName {
 		color: #001c31;
@@ -190,8 +196,20 @@
 	font-weight: 600;
 	line-height: 1.25rem;
 	border: 1px solid #ff6a00;
+
 	&:hover {
 		background-color: #ff6a00;
 		color: #fff;
+	}
+
+	&:disabled {
+		background: transparent;
+		border: 1px solid #ff6a00;
+		color: #ff6a00;
+
+		&:hover {
+			background-color: transparent;
+			color: #ff6a00;
+		}
 	}
 }

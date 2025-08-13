@@ -1,7 +1,7 @@
 import { useAddCompanyQuery } from "@/feature/companies/add/api/query.ts"
 import { IAddCompany } from "@/feature/companies/add/api/types.ts"
 import { useCompanyAddStore } from "@/feature/companies/add/model"
-import { Button, FileButton, Text } from "@mantine/core"
+import { Button, FileButton, Text, Textarea } from "@mantine/core"
 import Image from "next/image"
 import React, { useState } from "react"
 import { Controller, useForm } from "react-hook-form"
@@ -32,6 +32,7 @@ export const CompanyAdd = () => {
 		setCompanyAdd(false)
 		reset({
 			name: "",
+			description: "",
 		})
 	}
 
@@ -40,6 +41,7 @@ export const CompanyAdd = () => {
 	const onSubmit = (data: IAddCompany) => {
 		mutate({
 			name: data?.name,
+			description: data?.description,
 			image: file,
 		})
 	}
@@ -69,7 +71,20 @@ export const CompanyAdd = () => {
 					name={"name"}
 					control={control}
 					render={({ field }) => (
-						<Input label={"Company name"} mt={24} {...field} />
+						<Input label={"Company name"} m={"24px 0"} {...field} />
+					)}
+				/>
+
+				<Controller
+					name={"description"}
+					control={control}
+					render={({ field }) => (
+						<Textarea
+							rows={10}
+							placeholder={"Company description"}
+							className={s.textArea}
+							{...field}
+						/>
 					)}
 				/>
 

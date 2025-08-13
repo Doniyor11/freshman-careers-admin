@@ -1,17 +1,17 @@
-import { InternshipEdit } from "@/feature/internships/edit/ui"
 import dynamic from "next/dynamic"
-import React from "react"
+
+import { InternshipInnerInfo } from "@/pages/internships/view/ui"
 
 const PrivateRoute = dynamic(() => import("@/widgets/private-route"), {
 	ssr: false,
 })
 
-const EditInternship = () => {
+const InternshipsPage = () => {
 	return (
 		<PrivateRoute>
-			<InternshipEdit />
+			<InternshipInnerInfo />
 		</PrivateRoute>
 	)
 }
 
-export default EditInternship
+export default InternshipsPage

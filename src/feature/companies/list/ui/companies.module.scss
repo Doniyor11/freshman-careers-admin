@@ -1,101 +1,101 @@
 .companiesTitle {
-  color: #001c31;
-  text-align: center;
-  font-size: 2.5rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 3rem;
+	color: #001c31;
+	text-align: center;
+	font-size: 2.5rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 3rem;
 
-  @media screen and (max-width: 1024px) {
-    font-size: 2rem;
-    line-height: 2.5rem;
-  }
+	@media screen and (max-width: 1024px) {
+		font-size: 2rem;
+		line-height: 2.5rem;
+	}
 
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    text-align: left;
-  }
+	@media screen and (max-width: 768px) {
+		font-size: 1.5rem;
+		line-height: 2rem;
+		text-align: left;
+	}
 
-  @media screen and (max-width: 480px) {
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.5rem;
-    margin-top: 1rem;
-  }
+	@media screen and (max-width: 480px) {
+		font-size: 1.25rem;
+		font-weight: 500;
+		line-height: 1.5rem;
+		margin-top: 1rem;
+	}
 }
 
 .companiesCardWrapper {
-  border-radius: 0.5rem;
-  background: #fff;
-  padding: 1.5rem;
+	border-radius: 0.5rem;
+	background: #fff;
+	padding: 1.5rem;
 
-  @media screen and (max-width: 768px) {
-    padding: 1rem;
-  }
+	@media screen and (max-width: 768px) {
+		padding: 1rem;
+	}
 
-  @media screen and (max-width: 480px) {
-    padding: 0.75rem;
-  }
+	@media screen and (max-width: 480px) {
+		padding: 0.75rem;
+	}
 }
 
 .actionIcon {
-  background: transparent;
-  border-radius: 0.5rem;
-  border: 1px solid #ff6a00;
-  width: 2.75rem;
-  height: 2.75rem;
+	background: transparent;
+	border-radius: 0.5rem;
+	border: 1px solid #ff6a00;
+	width: 2.75rem;
+	height: 2.75rem;
 
-  &:hover {
-    background: transparent;
-  }
+	&:hover {
+		background: transparent;
+	}
 
-  @media screen and (max-width: 480px) {
-    width: 2.25rem;
-    height: 2.25rem;
-  }
+	@media screen and (max-width: 480px) {
+		width: 2.25rem;
+		height: 2.25rem;
+	}
 }
 
 .companiesCardIcon {
-  width: 3rem;
-  height: 3rem;
+	width: 3rem;
+	height: 3rem;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 0.5rem;
-  }
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		border-radius: 0.5rem;
+	}
 
-  @media screen and (max-width: 480px) {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
+	@media screen and (max-width: 480px) {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
 }
 
 .companiesCardTitle {
-  color: #001c31;
-  text-align: left;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.5rem;
+	color: #001c31;
+	text-align: left;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5rem;
 
-  @media screen and (max-width: 480px) {
-    font-size: 1.125rem;
-    line-height: 1.375rem;
-  }
+	@media screen and (max-width: 480px) {
+		font-size: 1.125rem;
+		line-height: 1.375rem;
+	}
 }
 
 .companiesCardDescription {
-  color: #848f98;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.25rem;
+	color: #848f98;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.25rem;
 
-  @media screen and (max-width: 480px) {
-    font-size: 0.8125rem;
-    line-height: 1.125rem;
-  }
+	@media screen and (max-width: 480px) {
+		font-size: 0.8125rem;
+		line-height: 1.125rem;
+	}
 }
