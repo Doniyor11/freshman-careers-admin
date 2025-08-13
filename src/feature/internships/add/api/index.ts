@@ -1,10 +1,7 @@
-import clientApi from "@/shared/api/base-api.ts";
-import { apiKeys } from "@/shared/constants/api-keys.ts";
+import clientApi from "@/shared/api/base-api.ts"
+import { apiKeys } from "@/shared/constants/api-keys.ts"
 
-
-
-import { IInternships } from "./types.ts";
-
+import { IInternships } from "./types.ts"
 
 export const addInternshipApi = async (data: IInternships) => {
 	const formData = new FormData()
