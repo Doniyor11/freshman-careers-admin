@@ -5,11 +5,6 @@ export const AddInternshipScheme = yup.object().shape({
 	title: yup.string().required("Lavozim nomi kiritilishi shart"),
 
 	payment_status: yup.string().required("To‘lov holatini tanlang"),
-	payment_amount: yup
-		.number()
-		.required("To‘lov summasi kiritilishi shart")
-		.min(0, "To‘lov summasi manfiy bo‘lmasligi kerak"),
-	payment_regularity: yup.string().required("To‘lov davriyligini tanlang"),
 
 	education: yup.string().required("Ta’lim darajasi kiritilishi shart"),
 	format: yup.string().required("Format tanlanishi shart"),

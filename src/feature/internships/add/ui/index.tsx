@@ -29,9 +29,11 @@ export const InternshipAdd = () => {
 	})
 
 	const {
+		watch,
 		reset,
 		control,
 		handleSubmit,
+		getValues,
 		formState: { isDirty, isValid },
 	} = useForm<IInternships>({
 		mode: "all",
@@ -57,10 +59,15 @@ export const InternshipAdd = () => {
 				: undefined,
 		})
 	}
+	watch("payment_status")
 
 	return (
 		<Container size={"1440px"} className={s.internshipInnerInfoWrapper}>
-			<Flex align={"center"} onClick={() => router.push("/internships")}>
+			<Flex
+				align={"center"}
+				onClick={() => router.push("/internships")}
+				w={"fit-content"}
+			>
 				<IconBack />
 				<Text component={"p"} className={s.backText}>
 					Go back
@@ -131,40 +138,43 @@ export const InternshipAdd = () => {
 									render={({ field }) => (
 										<Select
 											placeholder={"Present/Not present"}
-											data={["Present", "Not present"]}
+											data={["Present", "Not Present"]}
 											{...field}
 										/>
 									)}
 								/>
+								{getValues("payment_status") === "Present" && (
+									<>
+										<Controller
+											name={"payment_amount"}
+											control={control}
+											render={({ field }) => (
+												<InputOutlined
+													placeholder={"Payment amount"}
+													type={"number"}
+													{...field}
+												/>
+											)}
+										/>
 
-								<Controller
-									name={"payment_amount"}
-									control={control}
-									render={({ field }) => (
-										<InputOutlined
-											placeholder={"Payment amount"}
-											type={"number"}
-											{...field}
+										<Controller
+											name={"payment_regularity"}
+											control={control}
+											render={({ field }) => (
+												<Select
+													placeholder={"Regularity of payment"}
+													data={[
+														"Daily",
+														"Weekly",
+														"Monthly",
+														"At the end of internship",
+													]}
+													{...field}
+												/>
+											)}
 										/>
-									)}
-								/>
-
-								<Controller
-									name={"payment_regularity"}
-									control={control}
-									render={({ field }) => (
-										<Select
-											placeholder={"Regularity of payment"}
-											data={[
-												"Daily",
-												"Weekly",
-												"Monthly",
-												"At the end of internship",
-											]}
-											{...field}
-										/>
-									)}
-								/>
+									</>
+								)}
 							</Flex>
 						</Flex>
 						<Flex direction={"column"} mt={"2.5rem"}>
