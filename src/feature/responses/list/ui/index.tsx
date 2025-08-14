@@ -149,32 +149,32 @@ const Card = ({ data }: ICardDataType) => {
 						fullWidth
 						h={"2.75rem"}
 						className={s.internshipsCardButton}
-						onClick={() => router.push(`/internships/${data?.internship_id}`)}
+						onClick={() => router.push(`/internships/${data?.id}`)}
 					>
 						View Summary
 					</FilledButton>
-					<Flex justify={"space-between"} gap={"0.5rem"} mt={"0.5rem"}>
-						<OutlineButton
-							fullWidth
-							h={"2.75rem"}
-							className={s.buttonOutline}
-							loading={isPending}
-							onClick={() => onChangeStatus("Accepted")}
-							disabled={data?.status === "Accepted"}
-						>
-							Accept
-						</OutlineButton>
-						<OutlineButton
-							fullWidth
-							h={"2.75rem"}
-							className={s.buttonOutline}
-							loading={isPending}
-							onClick={() => onChangeStatus("Rejected")}
-							disabled={data?.status === "Rejected"}
-						>
-							Reject
-						</OutlineButton>
-					</Flex>
+					{data?.status === "Pending" && (
+						<Flex justify={"space-between"} gap={"0.5rem"} mt={"0.5rem"}>
+							<OutlineButton
+								fullWidth
+								h={"2.75rem"}
+								className={s.buttonOutline}
+								loading={isPending}
+								onClick={() => onChangeStatus("Accepted")}
+							>
+								Accept
+							</OutlineButton>
+							<OutlineButton
+								fullWidth
+								h={"2.75rem"}
+								className={s.buttonOutline}
+								loading={isPending}
+								onClick={() => onChangeStatus("Rejected")}
+							>
+								Reject
+							</OutlineButton>
+						</Flex>
+					)}
 				</Box>
 			</Box>
 		</Box>

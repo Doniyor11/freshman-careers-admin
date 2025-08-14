@@ -21,28 +21,28 @@ export const InternshipInnerInfo = () => {
 	const dataPriceInfo = [
 		{
 			title: "Payments",
-			info: data?.payment_status || "-",
+			info: data?.internship?.payment_status || "-",
 		},
 		{
 			title: "Education",
-			info: data?.education || "-",
+			info: data?.internship?.education || "-",
 		},
 		{
 			title: "Format",
-			info: data?.format || "-",
+			info: data?.internship?.format || "-",
 		},
 		{
 			title: "Schedule",
-			info: data?.schedule || "-",
+			info: data?.internship?.schedule || "-",
 		},
 		{
 			title: "Working hours",
-			info: data?.working_hours || "-",
+			info: data?.internship?.working_hours || "-",
 		},
 		{
 			title: "Internship dates",
-			info: `${data?.internship_start_date || "-"} - ${
-				data?.internship_end_date || "-"
+			info: `${data?.internship?.internship_start_date || "-"} - ${
+				data?.internship?.internship_end_date || "-"
 			}`,
 		},
 	]
@@ -60,7 +60,7 @@ export const InternshipInnerInfo = () => {
 			</Flex>
 			<Flex mb={matches ? "1rem" : "2.5rem"} p={matches ? "0 2rem" : ""}>
 				<Text component={"h1"} className={s.title}>
-					{data?.title}
+					{data?.internship?.title}
 				</Text>
 			</Flex>
 			<Flex
@@ -77,7 +77,7 @@ export const InternshipInnerInfo = () => {
 					<Box>
 						<Flex gap={"0.69rem"} mb={"0.5rem"} align={"center"}>
 							<Image
-								src={`${EnvKeys.NEXT_HOST}/${data?.company_image}`}
+								src={`${EnvKeys.NEXT_HOST}/${data?.company?.image}`}
 								alt={"apple"}
 								width={42}
 								height={42}
@@ -85,14 +85,20 @@ export const InternshipInnerInfo = () => {
 								unoptimized
 							/>
 							<Text component={"p"} className={s.infoText}>
-								{data?.company_title}
+								{data?.company?.title}
 							</Text>
 						</Flex>
-						<Flex mb={"2rem"}>
-							<Text component={"p"} className={s.priceText}>
-								{data?.salary}
-							</Text>
-						</Flex>
+						{(data?.internship?.payment_amount ||
+							data?.internship?.payment_regularity) && (
+							<Flex mb={"2rem"} gap={4}>
+								<Text component={"p"} className={s.priceText}>
+									{data?.internship?.payment_amount}
+								</Text>
+								<Text component={"p"} className={s.priceText}>
+									{data?.internship?.payment_regularity}
+								</Text>
+							</Flex>
+						)}
 						<Flex direction={"column"} gap={"0.5rem"}>
 							{dataPriceInfo?.map((item, index) => (
 								<Text component={"p"} className={s.priceInfoText} key={index}>
@@ -105,7 +111,7 @@ export const InternshipInnerInfo = () => {
 				{/* 2 */}
 				<Box className={s.imageWrapper}>
 					<Image
-						src={`${EnvKeys.NEXT_HOST}/${data?.picture}`}
+						src={`${EnvKeys.NEXT_HOST}/${data?.internship?.picture}`}
 						alt={""}
 						width={850}
 						height={515}
@@ -124,7 +130,7 @@ export const InternshipInnerInfo = () => {
 					Description
 				</Text>
 				<Text component={"p"} className={s.description}>
-					{data?.description || "-"}
+					{data?.internship?.description || "-"}
 				</Text>
 			</Flex>
 			<Flex
@@ -141,7 +147,7 @@ export const InternshipInnerInfo = () => {
 					<List className={s.list}>
 						<List.Item>
 							<Text component={"p"} className={s.description}>
-								{data?.requirements || "-"}
+								{data?.internship?.requirements || "-"}
 							</Text>
 						</List.Item>
 					</List>
@@ -154,7 +160,7 @@ export const InternshipInnerInfo = () => {
 					<List className={s.list}>
 						<List.Item>
 							<Text component={"p"} className={s.description}>
-								{data?.conditions || "-"}
+								{data?.internship?.conditions || "-"}
 							</Text>
 						</List.Item>
 					</List>
