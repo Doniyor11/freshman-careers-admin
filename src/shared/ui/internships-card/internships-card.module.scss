@@ -1,11 +1,12 @@
 .internshipsCardWrapper {
 	border-radius: 0.5rem;
 	background: #fff;
+	height: 100%;
 }
 
 .internshipsCardImage {
 	height: 16rem;
-	border-radius: 0.5rem;
+	border-radius: 0.5rem 0.5rem 0 0;
 	overflow: hidden;
 
 	img {
@@ -17,6 +18,10 @@
 
 .internshipsCardContent {
 	padding: 1.5rem;
+	height: calc(100% - 256px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
 	.companyName {
 		color: #001c31;
@@ -44,10 +49,8 @@
 .internshipsCardDay {
 	color: #848f98;
 	font-size: 0.875rem;
-	font-style: normal;
 	font-weight: 400;
 	line-height: 1rem;
-	font-family: "Inter", sans-serif;
 }
 
 .internshipsCardTitle {
@@ -63,7 +66,6 @@
 	color: #848f98;
 	text-overflow: ellipsis;
 	font-size: 0.875rem;
-	font-style: normal;
 	font-weight: 400;
 	line-height: 1.25rem;
 
@@ -74,7 +76,6 @@
 
 .internshipsCardDate {
 	color: #001c31;
-	font-family: "Inter", sans-serif;
 	font-size: 0.875rem;
 	font-style: normal;
 	font-weight: 400;

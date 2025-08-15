@@ -58,37 +58,40 @@ export const InternshipsCard: React.FC<InternshipsCardProps> = ({
 				/>
 			</Box>
 			<Box className={s.internshipsCardContent}>
-				<Flex justify={"space-between"} align={"center"}>
-					<Flex align={"center"} gap={10}>
-						<Box className={s.internshipsCardIcon}>
-							<Image
-								src={iconSrc}
-								alt={iconAlt}
-								width={32}
-								height={32}
-								unoptimized
-							/>
-						</Box>
-						<Text className={s.companyName}>{companyName}</Text>
+				<Box>
+					<Flex justify={"space-between"} align={"center"}>
+						<Flex align={"center"} gap={10}>
+							<Box className={s.internshipsCardIcon}>
+								<Image
+									src={iconSrc}
+									alt={iconAlt}
+									width={32}
+									height={32}
+									unoptimized
+								/>
+							</Box>
+							<Text className={s.companyName}>{companyName}</Text>
+						</Flex>
+						<Box className={s.internshipsCardDay}>{day}</Box>
 					</Flex>
-					<Box className={s.internshipsCardDay}>{day}</Box>
-				</Flex>
-				<Flex direction={"column"} m={"1.5rem 0 1.5rem"} gap={"0.75rem"}>
-					<Text component={"h3"} className={s.internshipsCardTitle}>
-						{title}
-					</Text>
-					<Text component={"p"} className={s.internshipsCardDescription}>
-						{description}
-					</Text>
-				</Flex>
-				<Flex direction={"column"} mb={"1.5rem"}>
-					<Text component={"p"} className={s.internshipsCardDescription}>
-						{datesLabel}
-					</Text>
-					<Text component={"p"} className={s.internshipsCardDate}>
-						{dates}
-					</Text>
-				</Flex>
+					<Flex direction={"column"} m={"1.5rem 0 1.5rem"} gap={"0.75rem"}>
+						<Text component={"h3"} className={s.internshipsCardTitle}>
+							{title}
+						</Text>
+						<div
+							className={s.internshipsCardDescription}
+							dangerouslySetInnerHTML={{ __html: description }}
+						/>
+					</Flex>
+					<Flex direction={"column"} mb={"1.5rem"}>
+						<Text component={"p"} className={s.internshipsCardDescription}>
+							{datesLabel}
+						</Text>
+						<Text component={"p"} className={s.internshipsCardDate}>
+							{dates}
+						</Text>
+					</Flex>
+				</Box>
 				<Flex gap={"0.5rem"}>
 					<FilledButton
 						className={s.internshipsCardButton}

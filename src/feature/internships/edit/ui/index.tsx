@@ -5,9 +5,10 @@ import { EditInternshipScheme } from "@/feature/internships/edit/api/schema.ts"
 import { IEditInternships } from "@/feature/internships/edit/api/types.ts"
 import { useGetInternshipQuery } from "@/feature/internships/list/api/query.ts"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { Container, Flex, Text, Textarea } from "@mantine/core"
+import { Container, Flex, Text } from "@mantine/core"
 import { DatePickerInput } from "@mantine/dates"
 import dayjs from "dayjs"
+import dynamic from "next/dynamic"
 import { useParams } from "next/navigation"
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
@@ -20,6 +21,8 @@ import { FilledButton } from "@/shared/ui/buttons"
 import { InputOutlined } from "@/shared/ui/inputs/input-outlined"
 
 import s from "./styles.module.scss"
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 
 export const InternshipEdit = () => {
 	const router = useRouter()
@@ -316,10 +319,9 @@ export const InternshipEdit = () => {
 								name={"description"}
 								control={control}
 								render={({ field }) => (
-									<Textarea
-										rows={10}
-										placeholder={"Internship Description"}
+									<ReactQuill
 										className={s.textArea}
+										placeholder="Internship Description"
 										{...field}
 									/>
 								)}
@@ -329,10 +331,9 @@ export const InternshipEdit = () => {
 								name={"requirements"}
 								control={control}
 								render={({ field }) => (
-									<Textarea
-										rows={10}
-										placeholder={"Internship Requirements"}
+									<ReactQuill
 										className={s.textArea}
+										placeholder="Internship Requirements"
 										{...field}
 									/>
 								)}
@@ -342,10 +343,9 @@ export const InternshipEdit = () => {
 								name={"conditions"}
 								control={control}
 								render={({ field }) => (
-									<Textarea
-										rows={10}
-										placeholder={"Internship Conditions"}
+									<ReactQuill
 										className={s.textArea}
+										placeholder="Internship Conditions"
 										{...field}
 									/>
 								)}

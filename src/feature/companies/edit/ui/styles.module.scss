@@ -57,19 +57,16 @@
 }
 
 .textArea {
-	textarea {
-		height: 100px;
-		border-radius: 0.5rem;
-		border: 1px solid #e2eaff;
-		background: #fafbff;
-		padding: 1.25rem 1rem;
-		&:focus {
-			outline: none;
-			border-color: #004b84;
-		}
+	height: 150px;
+
+	:global(.ql-toolbar) {
+		border-radius: 0.5rem 0.5rem 0 0;
+		border-color: #e2eaff;
 	}
 
-	&:not(:last-child) {
-		margin-bottom: 0.5rem;
+	:global(.ql-container) {
+		height: calc(100% - 44px);
+		border-radius: 0 0 0.5rem 0.5rem;
+		border-color: #e2eaff;
 	}
 }

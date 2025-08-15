@@ -2,7 +2,8 @@ import { IAddCompany } from "@/feature/companies/add/api/types.ts"
 import { useEditCompanyQuery } from "@/feature/companies/edit/api/query.ts"
 import { useCompanyEditStore } from "@/feature/companies/edit/model"
 import { useGetCompanyQuery } from "@/feature/companies/list/api/query.ts"
-import { Button, FileButton, Text, Textarea } from "@mantine/core"
+import { Button, FileButton, Text } from "@mantine/core"
+import dynamic from "next/dynamic"
 import Image from "next/image"
 import React, { useEffect, useMemo, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
@@ -12,6 +13,8 @@ import { EnvKeys } from "@/shared/constants/env.ts"
 import { Input, Modal } from "@/shared/ui"
 
 import s from "./styles.module.scss"
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 
 export const CompanyEdit = () => {
 	const [companyEdit, companyId, setCompanyEdit, setCompanyId] =
@@ -103,11 +106,9 @@ export const CompanyEdit = () => {
 					name={"description"}
 					control={control}
 					render={({ field }) => (
-						<Textarea
-							mt={24}
-							rows={10}
-							placeholder={"Company description"}
+						<ReactQuill
 							className={s.textArea}
+							placeholder="Internship Conditions"
 							{...field}
 						/>
 					)}

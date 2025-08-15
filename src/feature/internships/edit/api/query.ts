@@ -12,7 +12,7 @@ export const useEditInternshipQuery = (onSuccess: () => void) => {
 		mutationFn: (data: IEditInternships) => editInternshipApi(data),
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: [apiKeys.internships] })
-			toast.success("Internship added successfully!")
+			toast.success("Internship edited successfully!")
 			onSuccess && onSuccess()
 		},
 		onError: (data) => {
