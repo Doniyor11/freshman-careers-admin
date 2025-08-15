@@ -1,6 +1,5 @@
 export enum apiKeys {
 	internships = "/admin/internships",
-	accountApplications = "account/applications",
 	companies = "/admin/companies",
 	responses = "/admin/responses",
 	signIn = "/auth/signin",

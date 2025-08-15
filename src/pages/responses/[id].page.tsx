@@ -1,17 +1,16 @@
-import { InternshipEdit } from "@/feature/internships/edit/ui"
+import { ResponseView } from "@/feature/responses/view/ui"
 import dynamic from "next/dynamic"
-import React from "react"
 
 const PrivateRoute = dynamic(() => import("@/widgets/private-route"), {
 	ssr: false,
 })
 
-const EditInternship = () => {
+const ResponseViewPage = () => {
 	return (
 		<PrivateRoute>
-			<InternshipEdit />
+			<ResponseView />
 		</PrivateRoute>
 	)
 }
 
-export default EditInternship
+export default ResponseViewPage

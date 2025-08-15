@@ -149,7 +149,7 @@ const Card = ({ data }: ICardDataType) => {
 						fullWidth
 						h={"2.75rem"}
 						className={s.internshipsCardButton}
-						onClick={() => router.push(`/internships/${data?.id}`)}
+						onClick={() => router.push(`/responses/${data?.id}`)}
 					>
 						View Summary
 					</FilledButton>

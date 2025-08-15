@@ -1,0 +1,90 @@
+.internshipInnerInfoWrapper {
+	padding: 3rem 2rem 4rem 2rem;
+	@media screen and (max-width: 1024px) {
+		padding: 2rem 0 3rem 0;
+	}
+}
+
+.backText {
+	color: #004b84;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: -0.02rem;
+	cursor: pointer;
+	user-select: none;
+}
+
+.title {
+	color: #001c31;
+	font-size: 2.5rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 3rem;
+	margin-bottom: 1rem;
+	@media screen and (max-width: 1024px) {
+		font-size: 1.75rem;
+		font-weight: 600;
+		line-height: 2rem;
+		margin-bottom: 1rem;
+		padding: 0 2rem;
+	}
+}
+
+.status {
+	font-size: 1.25rem;
+	line-height: 1.25rem;
+	font-weight: 500;
+}
+
+.companyLogo {
+	object-fit: contain;
+}
+
+.textWrapper {
+	margin-bottom: 1rem;
+
+	.label {
+		color: #848f98;
+		font-size: 1rem;
+		line-height: 1rem;
+		letter-spacing: 0.02rem;
+	}
+
+	.text {
+		color: #001c31;
+		font-size: 1.4rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 1.5rem;
+		letter-spacing: 0.035rem;
+	}
+}
+
+.infoWrapper {
+	padding: 1.5rem;
+	border-radius: 1rem;
+	background: #ffffff;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
+	gap: 1rem;
+}
+
+.downloadBtn {
+	background: #ff6a00;
+	width: 100%;
+	height: 44px;
+	border-radius: 8px;
+
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
+	text-decoration: none !important;
+	color: #ffffff;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
