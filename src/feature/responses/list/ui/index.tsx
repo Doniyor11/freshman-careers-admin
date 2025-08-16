@@ -6,6 +6,7 @@ import {
 } from "@/feature/responses/list/api/query.ts"
 import { IGetResponse } from "@/feature/responses/list/api/types.ts"
 import { Box, Container, Flex, Grid, Text } from "@mantine/core"
+import { useMediaQuery } from "@mantine/hooks"
 import dayjs from "dayjs"
 import Image from "next/image"
 import { useRouter } from "next/router"
@@ -21,6 +22,8 @@ interface ICardDataType {
 }
 
 export const ResponsesList = () => {
+	const matches = useMediaQuery("(max-width: 1024px)")
+
 	const [companyId, status, date] = useResponseFilterStore((s) => [
 		s.companyId,
 		s.status,
@@ -35,12 +38,12 @@ export const ResponsesList = () => {
 	return (
 		<Container size={"1440px"} className={s.myProfileWrapper}>
 			<Grid gutter={"1.5rem"}>
-				<Grid.Col span={3}>
+				<Grid.Col span={matches ? 12 : 3}>
 					<Flex direction={"column"} gap={"1.5rem"}>
 						<FilterResponse />
 					</Flex>
 				</Grid.Col>
-				<Grid.Col span={9}>
+				<Grid.Col span={matches ? 12 : 9}>
 					<Flex mb={"2.5rem"}>
 						<Text component={"h1"} className={s.title}>
 							Responses
@@ -49,7 +52,7 @@ export const ResponsesList = () => {
 					{/*	 -----------  Grid start ------------ */}
 					<Grid>
 						{data?.map((item: IGetResponse, index: number) => (
-							<Grid.Col span={4} key={index}>
+							<Grid.Col span={matches ? "auto" : 4} key={index}>
 								<Card data={item} />
 							</Grid.Col>
 						))}
@@ -131,9 +134,12 @@ const Card = ({ data }: ICardDataType) => {
 						<Text component={"h3"} className={s.internshipsCardTitle}>
 							{data?.internship?.title || "-"}
 						</Text>
-						<Text component={"p"} className={s.internshipsCardDescription}>
-							{data?.internship?.description || "-"}
-						</Text>
+						<div
+							className={s.internshipsCardDescription}
+							dangerouslySetInnerHTML={{
+								__html: data?.internship?.description || "-",
+							}}
+						/>
 					</Flex>
 					<Flex direction={"column"} mb={"1.5rem"}>
 						<Text component={"p"} className={s.internshipsCardDescription}>

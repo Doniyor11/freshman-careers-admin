@@ -98,7 +98,7 @@ export const CompanyEdit = () => {
 					name={"name"}
 					control={control}
 					render={({ field }) => (
-						<Input label={"Company name"} mt={24} {...field} />
+						<Input label={"Company name"} m={"16px 0"} {...field} />
 					)}
 				/>
 

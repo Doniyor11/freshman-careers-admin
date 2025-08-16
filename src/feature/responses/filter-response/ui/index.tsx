@@ -53,6 +53,7 @@ export const FilterResponse = () => {
 					leftSection={<IconBriefcase />}
 					value={date}
 					onChange={setDate}
+					clearable
 				/>
 				<BadgeGroup
 					label={"Status"}

@@ -33,20 +33,25 @@ export const ResponseView = () => {
 			<Flex
 				mb={12}
 				align={"center"}
-				p={matches ? "0 2rem" : 0}
+				p={matches ? "0 1rem" : 0}
 				onClick={() => router.push("/responses")}
 			>
 				<IconBack />
 				<Text className={s.backText}>Go back</Text>
 			</Flex>
 
-			<Flex align={"center"} justify={"space-between"} gap={16}>
+			<Flex align={"center"} justify={"space-between"} gap={16} p={"0 1rem"}>
 				<Text className={s.title}>{data?.internship?.title || "-"}</Text>
 				<Text className={s.status} color={getStatusColor(data?.status)}>
 					{data?.status || "-"}
 				</Text>
 			</Flex>
-			<Flex gap={"0.69rem"} mb={"0.5rem"} align={"center"}>
+			<Flex
+				gap={"0.69rem"}
+				mb={"0.5rem"}
+				p={matches ? "0 1rem" : 0}
+				align={"center"}
+			>
 				<Image
 					src={`${EnvKeys.NEXT_HOST}/${data?.company?.image}`}
 					alt={"apple"}
@@ -95,7 +100,13 @@ export const ResponseView = () => {
 					</Text>
 				</Box>
 			</div>
-			<Flex align={"center"} gap={16} mt={24}>
+			<Flex
+				p={matches ? "0 1rem" : 0}
+				direction={matches ? "column" : "row"}
+				align={"center"}
+				gap={16}
+				mt={24}
+			>
 				{data?.resume_url && (
 					<Anchor
 						target={"_blank"}

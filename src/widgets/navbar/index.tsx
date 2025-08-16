@@ -81,10 +81,10 @@ export const Navbar = () => {
 
 						{isMobile ? (
 							<Flex align={"center"} gap={16}>
+								<Burger opened={opened} onClick={open} size="sm" />
 								<ActionIcon onClick={handleLogout} variant={"subtle"}>
 									<IconLogout />
 								</ActionIcon>
-								<Burger opened={opened} onClick={open} size="sm" />
 							</Flex>
 						) : (
 							<Flex align={"center"} gap={34}>

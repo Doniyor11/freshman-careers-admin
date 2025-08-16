@@ -1,17 +1,12 @@
 import { Anchor, Box, Container, Flex, Text } from "@mantine/core"
 import { useMediaQuery } from "@mantine/hooks"
+import Link from "next/link"
 import React from "react"
 
 import s from "./footer.module.scss"
 
 export const Footer = () => {
 	const matches = useMediaQuery("(max-width: 1024px)")
-
-	const onLinkClick = (id: string) => {
-		const block = document.querySelector(`#${id}`)
-		if (!block) return
-		block.scrollIntoView(true)
-	}
 	return (
 		<Box className={s.footerWrapper}>
 			<Container size={"1440px"}>
@@ -23,47 +18,15 @@ export const Footer = () => {
 						<Text component={"h2"} className={s.footerTitle}>
 							PROGRAMS
 						</Text>
-						<Text
-							className={s.footerDescription}
-							onClick={() => onLinkClick("Internship")}
-						>
-							Internship
-						</Text>
-						<Text
-							className={s.footerDescription}
-							onClick={() => onLinkClick("Companies")}
-						>
+						<Link href={"/internships"} className={s.footerDescription}>
+							Internships
+						</Link>
+						<Link href={"/companies"} className={s.footerDescription}>
 							Companies
-						</Text>
-					</Flex>
-					<Flex direction={"column"} gap={"0.75rem"}>
-						<Text component={"h2"} className={s.footerTitle}>
-							INFORMATION
-						</Text>
-						<Text
-							className={s.footerDescription}
-							onClick={() => onLinkClick("Process")}
-						>
-							Process
-						</Text>
-						<Text
-							className={s.footerDescription}
-							onClick={() => onLinkClick("Reviews")}
-						>
-							Reviews
-						</Text>
-						<Text
-							className={s.footerDescription}
-							onClick={() => onLinkClick("Webinars")}
-						>
-							Webinars
-						</Text>
-						<Text
-							className={s.footerDescription}
-							onClick={() => onLinkClick("FAQ")}
-						>
-							FAQ
-						</Text>
+						</Link>
+						<Link href={"/responses"} className={s.footerDescription}>
+							Responses
+						</Link>
 					</Flex>
 					<Flex direction={"column"} gap={"0.75rem"}>
 						<Text component={"h2"} className={s.footerTitle}>
@@ -84,11 +47,11 @@ export const Footer = () => {
 							Instagram
 						</Anchor>
 						<Anchor
-							href={"#"}
+							href={"https://freshman.careers"}
 							target={"_blank"}
 							className={s.footerDescription}
 						>
-							YouTube
+							WebSite
 						</Anchor>
 					</Flex>
 				</Flex>
