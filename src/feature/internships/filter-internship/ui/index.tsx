@@ -55,6 +55,7 @@ export const FilterInternship = () => {
 						placeholder: s.datePickerPlaceholder,
 					}}
 					leftSection={<IconBriefcase />}
+					clearable
 					value={date}
 					onChange={setDate}
 				/>

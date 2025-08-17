@@ -59,7 +59,7 @@ export const InternshipsCard: React.FC<InternshipsCardProps> = ({
 			</Box>
 			<Box className={s.internshipsCardContent}>
 				<Box>
-					<Flex justify={"space-between"} align={"center"}>
+					<Flex justify={"space-between"} align={"center"} gap={12}>
 						<Flex align={"center"} gap={10}>
 							<Box className={s.internshipsCardIcon}>
 								<Image

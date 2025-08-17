@@ -5,13 +5,15 @@ import {
 	useResponseStatusQuery,
 } from "@/feature/responses/list/api/query.ts"
 import { IGetResponse } from "@/feature/responses/list/api/types.ts"
-import { Box, Container, Flex, Grid, Text } from "@mantine/core"
+import { Box, Container, Flex, Grid, Menu, Text } from "@mantine/core"
 import { useMediaQuery } from "@mantine/hooks"
 import dayjs from "dayjs"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import React from "react"
 
+import Icon2 from "@/shared/assets/images/icon/chevron_backward3.svg"
+import Icon3 from "@/shared/assets/images/icon/chevron_backward-small.svg"
 import { EnvKeys } from "@/shared/constants/env.ts"
 import { FilledButton, OutlineButton } from "@/shared/ui/buttons"
 
@@ -24,13 +26,17 @@ interface ICardDataType {
 export const ResponsesList = () => {
 	const matches = useMediaQuery("(max-width: 1024px)")
 
-	const [companyId, status, date] = useResponseFilterStore((s) => [
-		s.companyId,
-		s.status,
-		s.date,
-	])
+	const [companyId, status, data_order, date, setDataOrder] =
+		useResponseFilterStore((s) => [
+			s.companyId,
+			s.status,
+			s.data_order,
+			s.date,
+			s.setDataOrder,
+		])
 	const { data } = useGetResponsesQuery({
 		status,
+		data_order,
 		company_id: companyId ? Number(companyId) : undefined,
 		date_from: date[0] ? dayjs(date[0]).format("DD.MM.YYYY") : undefined,
 		date_to: date[1] ? dayjs(date[1]).format("DD.MM.YYYY") : undefined,
@@ -39,15 +45,58 @@ export const ResponsesList = () => {
 		<Container size={"1440px"} className={s.myProfileWrapper}>
 			<Grid gutter={"1.5rem"}>
 				<Grid.Col span={matches ? 12 : 3}>
-					<Flex direction={"column"} gap={"1.5rem"}>
-						<FilterResponse />
-					</Flex>
+					<FilterResponse />
 				</Grid.Col>
 				<Grid.Col span={matches ? 12 : 9}>
-					<Flex mb={"2.5rem"}>
+					<Flex mb={"2.5rem"} align={"center"} justify={"space-between"}>
 						<Text component={"h1"} className={s.title}>
 							Responses
 						</Text>
+
+						<Menu
+							trigger={"hover"}
+							position={"bottom-end"}
+							classNames={{
+								dropdown: s.profileDropdown,
+							}}
+							width={"16rem"}
+						>
+							<Menu.Target>
+								<Text className={s.myApplicationsSelect}>
+									{data_order === "NEWEST"
+										? "Most Recent"
+										: data_order === "OLDEST"
+										? "The oldest"
+										: "Select order"}
+									<Icon2 />
+								</Text>
+							</Menu.Target>
+
+							<Menu.Dropdown>
+								<Flex
+									className={s.profileItem}
+									justify={"space-between"}
+									align={"center"}
+									onClick={() => setDataOrder("NEWEST")}
+								>
+									<Text component={"span"} className={s.profileItemText}>
+										Most Recent
+									</Text>
+									<Icon3 />
+								</Flex>
+								<Flex
+									className={s.profileItem}
+									justify={"space-between"}
+									align={"center"}
+									onClick={() => setDataOrder("OLDEST")}
+								>
+									<Text component={"span"} className={s.profileItemText}>
+										The oldest
+									</Text>
+									<Icon3 />
+								</Flex>
+							</Menu.Dropdown>
+						</Menu>
 					</Flex>
 					{/*	 -----------  Grid start ------------ */}
 					<Grid>

@@ -11,6 +11,7 @@ export const getResponsesApi = async (params?: IResponseParam) => {
 		params: {
 			status: params?.status,
 			company_id: params?.company_id,
+			data_order: params?.data_order,
 			date_to: params?.date_to,
 			date_from: params?.date_from,
 		},

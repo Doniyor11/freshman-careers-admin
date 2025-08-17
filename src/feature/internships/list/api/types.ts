@@ -27,6 +27,7 @@ export interface IInternshipParam {
 	start_date_min?: any
 	start_date_max?: any
 	education?: string
+	data_order?: string
 	format?: string
 	only_titles?: boolean
 	limit?: number

@@ -55,3 +55,12 @@ a {
 		word-break: break-word;
 	}
 }
+
+.no-data__available {
+	background: #ffffff;
+	border-radius: 12px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

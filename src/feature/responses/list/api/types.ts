@@ -49,6 +49,7 @@ export interface IResponseStatus {
 export interface IResponseParam {
 	company_id?: number
 	status?: string
+	data_order?: string
 	date_from?: string
 	date_to?: string
 }

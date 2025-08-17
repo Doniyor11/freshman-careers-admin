@@ -107,17 +107,15 @@ export const CompaniesList = () => {
 												<Text component={"h3"} className={s.companiesCardTitle}>
 													{i?.title}
 												</Text>
-												{!!i?.internship_count && (
-													<Text
-														component={"p"}
-														className={s.companiesCardDescription}
-													>
-														{i?.internship_count}
-														{i?.internship_count > 1
-															? " internships"
-															: " internship"}
-													</Text>
-												)}
+												<Text
+													component={"p"}
+													className={s.companiesCardDescription}
+												>
+													{i?.internship_count}
+													{i?.internship_count > 1
+														? " internships"
+														: " internship"}
+												</Text>
 											</Flex>
 										</Flex>
 										<Flex
@@ -127,8 +125,9 @@ export const CompaniesList = () => {
 										>
 											<FilledButton
 												h={matchesMobile ? "2.5rem" : "2.75rem"}
-												onClick={() => router.push(`/internships`)}
+												onClick={() => router.push(`/companies/${i?.id}`)}
 												flex={"1"}
+												disabled={i?.internship_count === 0}
 											>
 												Internships
 											</FilledButton>

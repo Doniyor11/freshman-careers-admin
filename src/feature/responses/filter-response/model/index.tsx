@@ -6,6 +6,7 @@ import { IInitialState, IResponseFilterStore } from "./types.ts"
 const initialState: IInitialState = {
 	companyId: undefined,
 	status: undefined,
+	data_order: "NEWEST",
 	date: [null, null],
 }
 
@@ -17,6 +18,9 @@ export const useResponseFilterStore = create<IResponseFilterStore>()(
 		},
 		setStatus: (e) => {
 			set({ status: e })
+		},
+		setDataOrder: (e) => {
+			set({ data_order: e })
 		},
 		setDate: (e) => {
 			set({ date: e })

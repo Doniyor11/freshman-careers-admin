@@ -8,6 +8,7 @@ const initialState: IInitialState = {
 	education: undefined,
 	salary: undefined,
 	search: undefined,
+	data_order: "NEWEST",
 	date: [null, null],
 }
 
@@ -25,6 +26,9 @@ export const useApplicationFilterStore = create<IApplicationFilterStore>()(
 		},
 		setSearch: (e) => {
 			set({ search: e })
+		},
+		setDataOrder: (e) => {
+			set({ data_order: e })
 		},
 		setDate: (e) => {
 			set({ date: e })
