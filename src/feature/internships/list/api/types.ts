@@ -32,4 +32,5 @@ export interface IInternshipParam {
 	only_titles?: boolean
 	limit?: number
 	offset?: number
+	company_id?: number
 }

@@ -1,4 +1,5 @@
 import { useInternshipDeleteStore } from "@/feature/internships/delete/model"
+import { InternshipDelete } from "@/feature/internships/delete/ui"
 import { useApplicationFilterStore } from "@/feature/internships/filter-internship/model"
 import { useGetInternshipsQuery } from "@/feature/internships/list/api/query.ts"
 import { IGetInternship } from "@/feature/internships/list/api/types.ts"
@@ -9,7 +10,7 @@ import dayjs from "dayjs"
 import dynamic from "next/dynamic"
 import { useParams } from "next/navigation"
 import { useRouter } from "next/router"
-import React, { useMemo } from "react"
+import React from "react"
 
 import Icon2 from "@/shared/assets/images/icon/chevron_backward3.svg"
 import Icon3 from "@/shared/assets/images/icon/chevron_backward-small.svg"
@@ -35,13 +36,8 @@ const CompanyInternships = () => {
 
 	const { data } = useGetInternshipsQuery({
 		data_order,
+		company_id: Number(params?.id),
 	})
-
-	const filteredData = useMemo(() => {
-		return data?.filter(
-			(item: IGetInternship) => item.company_id === Number(params?.id),
-		)
-	}, [data, params?.id])
 
 	const spanValue = matchesMobile ? 12 : matches ? 6 : 4
 
@@ -103,8 +99,8 @@ const CompanyInternships = () => {
 						</Menu>
 					</Flex>
 					<Grid mt={"1.5rem"} gutter={"1.5rem"}>
-						{filteredData?.length > 0 ? (
-							filteredData?.map((i: IGetInternship, index: number) => (
+						{data?.length > 0 ? (
+							data?.map((i: IGetInternship, index: number) => (
 								<Grid.Col span={spanValue} key={index}>
 									<InternshipsCard
 										companyName={i?.company_title}
@@ -143,6 +139,7 @@ const CompanyInternships = () => {
 					</Grid>
 				</Box>
 			</Container>
+			<InternshipDelete />
 		</PrivateRoute>
 	)
 }
