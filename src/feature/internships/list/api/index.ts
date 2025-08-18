@@ -14,6 +14,7 @@ export const getInternshipsApi = async (params?: IInternshipParam) => {
 			data_order: params?.data_order,
 			limit: params?.limit,
 			offset: params?.offset,
+			company_id: params?.company_id,
 		},
 	})
 	return response?.data
