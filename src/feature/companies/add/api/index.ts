@@ -11,7 +11,6 @@ export const addCompanyApi = async (data: IAddCompany) => {
 	}
 
 	formData.append("name", data?.name)
-	formData.append("description", data?.description)
 
 	const response = await clientApi.post(apiKeys.companies, formData)
 	return response.data

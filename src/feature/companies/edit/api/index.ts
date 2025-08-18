@@ -11,7 +11,6 @@ export const editCompanyApi = async (data: IEditCompany) => {
 	}
 
 	formData.append("name", data?.name)
-	formData.append("description", data?.description)
 
 	const response = await clientApi.put(
 		`${apiKeys.companies}/${data?.id}`,

@@ -38,7 +38,7 @@ const CompanyInternships = () => {
 	})
 
 	const filteredData = useMemo(() => {
-		return  data?.filter(
+		return data?.filter(
 			(item: IGetInternship) => item.company_id === Number(params?.id),
 		)
 	}, [data, params?.id])

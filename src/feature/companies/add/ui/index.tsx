@@ -2,7 +2,6 @@ import { useAddCompanyQuery } from "@/feature/companies/add/api/query.ts"
 import { IAddCompany } from "@/feature/companies/add/api/types.ts"
 import { useCompanyAddStore } from "@/feature/companies/add/model"
 import { Button, FileButton, Text } from "@mantine/core"
-import dynamic from "next/dynamic"
 import Image from "next/image"
 import React, { useState } from "react"
 import { Controller, useForm } from "react-hook-form"
@@ -11,8 +10,6 @@ import ImageGallery from "@/shared/assets/images/gallery.png"
 import { Input, Modal } from "@/shared/ui"
 
 import s from "./styles.module.scss"
-
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 
 export const CompanyAdd = () => {
 	const [companyAdd, setCompanyAdd] = useCompanyAddStore((s) => [
@@ -35,7 +32,6 @@ export const CompanyAdd = () => {
 		setCompanyAdd(false)
 		reset({
 			name: "",
-			description: "",
 		})
 	}
 
@@ -44,7 +40,6 @@ export const CompanyAdd = () => {
 	const onSubmit = (data: IAddCompany) => {
 		mutate({
 			name: data?.name,
-			description: data?.description,
 			image: file,
 		})
 	}
@@ -75,18 +70,6 @@ export const CompanyAdd = () => {
 					control={control}
 					render={({ field }) => (
 						<Input height={50} label={"Company name"} m={"16px 0"} {...field} />
-					)}
-				/>
-
-				<Controller
-					name={"description"}
-					control={control}
-					render={({ field }) => (
-						<ReactQuill
-							className={s.textArea}
-							placeholder="Internship Conditions"
-							{...field}
-						/>
 					)}
 				/>
 

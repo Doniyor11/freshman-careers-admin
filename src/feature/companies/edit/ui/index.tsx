@@ -3,7 +3,6 @@ import { useEditCompanyQuery } from "@/feature/companies/edit/api/query.ts"
 import { useCompanyEditStore } from "@/feature/companies/edit/model"
 import { useGetCompanyQuery } from "@/feature/companies/list/api/query.ts"
 import { Button, FileButton, Text } from "@mantine/core"
-import dynamic from "next/dynamic"
 import Image from "next/image"
 import React, { useEffect, useMemo, useState } from "react"
 import { Controller, useForm } from "react-hook-form"
@@ -13,8 +12,6 @@ import { EnvKeys } from "@/shared/constants/env.ts"
 import { Input, Modal } from "@/shared/ui"
 
 import s from "./styles.module.scss"
-
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
 
 export const CompanyEdit = () => {
 	const [companyEdit, companyId, setCompanyEdit, setCompanyId] =
@@ -51,7 +48,6 @@ export const CompanyEdit = () => {
 		if (DefaultValue) {
 			reset({
 				name: DefaultValue.title,
-				description: DefaultValue.description,
 			})
 		}
 	}, [DefaultValue])
@@ -63,7 +59,6 @@ export const CompanyEdit = () => {
 			image: file,
 			id: companyId,
 			name: data?.name,
-			description: data?.description,
 		})
 	}
 
@@ -99,18 +94,6 @@ export const CompanyEdit = () => {
 					control={control}
 					render={({ field }) => (
 						<Input label={"Company name"} m={"16px 0"} {...field} />
-					)}
-				/>
-
-				<Controller
-					name={"description"}
-					control={control}
-					render={({ field }) => (
-						<ReactQuill
-							className={s.textArea}
-							placeholder="Internship Conditions"
-							{...field}
-						/>
 					)}
 				/>
 
