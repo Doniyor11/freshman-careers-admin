@@ -1,7 +1,7 @@
 export interface IInitialState {
-	companyAdd: boolean
+  companyAdd: boolean
 }
 
 export interface ICompanyAddStore extends IInitialState {
-	setCompanyAdd: (companyAdd: boolean) => void
+  setCompanyAdd: (companyAdd: boolean) => void
 }

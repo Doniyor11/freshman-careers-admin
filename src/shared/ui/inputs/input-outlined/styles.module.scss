@@ -1,24 +1,24 @@
 .input {
-	input {
-		border-radius: 8px;
-		border: 1px solid #e2eaff;
-		background: #fafbff;
+  input {
+    border-radius: 8px;
+    border: 1px solid #e2eaff;
+    background: #fafbff;
 
-		color: #000;
-		font-size: 20px;
-		font-weight: 500;
-		line-height: 24px;
-		letter-spacing: -0.4px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.4px;
 
-		&::placeholder {
-			color: #848f98;
-			font-size: 16px;
-			line-height: 20px;
-			letter-spacing: -0.32px;
-		}
-	}
+    &::placeholder {
+      color: #848f98;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: -0.32px;
+    }
+  }
 
-	.error {
-		color: #f00;
-	}
+  .error {
+    color: #f00;
+  }
 }

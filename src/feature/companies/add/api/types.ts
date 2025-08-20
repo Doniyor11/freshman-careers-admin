@@ -1,4 +1,4 @@
 export interface IAddCompany {
-	image: File | null
-	name: string
+  image: File | null
+  name: string
 }

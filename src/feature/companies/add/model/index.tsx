@@ -4,14 +4,14 @@ import { devtools } from "zustand/middleware"
 import { ICompanyAddStore, IInitialState } from "./types.ts"
 
 const initialState: IInitialState = {
-	companyAdd: false,
+  companyAdd: false,
 }
 
 export const useCompanyAddStore = create<ICompanyAddStore>()(
-	devtools((set) => ({
-		...initialState,
-		setCompanyAdd: (e) => {
-			set({ companyAdd: e })
-		},
-	})),
+  devtools((set) => ({
+    ...initialState,
+    setCompanyAdd: (e) => {
+      set({ companyAdd: e })
+    },
+  })),
 )

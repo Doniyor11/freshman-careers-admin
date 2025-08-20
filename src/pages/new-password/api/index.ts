@@ -4,6 +4,6 @@ import { apiKeys } from "@/shared/constants/api-keys.ts"
 import { INewPassword } from "./types.ts"
 
 export const newPasswordApi = async (data: INewPassword) => {
-	const response = await clientApi.post(apiKeys.signUp2, data)
-	return response.data
+  const response = await clientApi.post(apiKeys.signUp2, data)
+  return response.data
 }

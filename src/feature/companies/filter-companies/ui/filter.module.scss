@@ -1,27 +1,27 @@
 .filterWrapper {
-	padding: 1.5rem;
-	border-radius: 0.5rem;
-	background: #004b84;
-	position: sticky;
-	top: 1.5rem;
-	@media screen and (max-width: 768px) {
-		position: inherit;
-		top: 0;
-	}
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background: #004b84;
+  position: sticky;
+  top: 1.5rem;
+  @media screen and (max-width: 768px) {
+    position: inherit;
+    top: 0;
+  }
 }
 
 .filterSearch {
-	border-bottom: 1px solid #fff;
-	padding-bottom: 1.5rem;
-	margin-bottom: 1.5rem;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .filterLabel {
-	color: #fff;
-	font-family: "Inter", sans-serif;
-	font-size: 1rem;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 1.25rem;
-	letter-spacing: -0.02rem;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem;
+  letter-spacing: -0.02rem;
 }

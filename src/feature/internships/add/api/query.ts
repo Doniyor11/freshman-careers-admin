@@ -7,16 +7,16 @@ import { addInternshipApi } from "./index.ts"
 import { IInternships } from "./types.ts"
 
 export const useAddInternshipQuery = (onSuccess: () => void) => {
-	const queryClient = useQueryClient()
-	return useMutation({
-		mutationFn: (data: IInternships) => addInternshipApi(data),
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: [apiKeys.internships] })
-			toast.success("Internship added successfully!")
-			onSuccess && onSuccess()
-		},
-		onError: (data: any) => {
-			toast.error(data?.detail)
-		},
-	})
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (data: IInternships) => addInternshipApi(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [apiKeys.internships] })
+      toast.success("Internship added successfully!")
+      onSuccess && onSuccess()
+    },
+    onError: (data: any) => {
+      toast.error(data?.detail)
+    },
+  })
 }

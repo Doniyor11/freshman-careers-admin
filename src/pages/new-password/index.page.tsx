@@ -16,94 +16,94 @@ import { Input } from "@/shared/ui"
 import s from "./styles.module.scss"
 
 const PublicRoute = dynamic(() => import("@/widgets/public-route"), {
-	ssr: false,
+  ssr: false,
 })
 
 const NewPassword = () => {
-	const router = useRouter()
-	const SignupToken = Cookies.get(TOKEN.SIGNUP_TOKEN)
+  const router = useRouter()
+  const SignupToken = Cookies.get(TOKEN.SIGNUP_TOKEN)
 
-	useEffect(() => {
-		if (!SignupToken) {
-			router.push("/signup")
-		}
-	}, [SignupToken])
+  useEffect(() => {
+    if (!SignupToken) {
+      router.push("/signup")
+    }
+  }, [SignupToken])
 
-	const {
-		control,
-		handleSubmit,
-		formState: { isDirty, isValid, errors },
-	} = useForm<INewPassword>({
-		mode: "onChange",
-		resolver: yupResolver(NewPasswordScheme),
-	})
-	const { mutate, isPending } = useNewPasswordQuery(() => {
-		router.push("/companies")
-		sessionStorage.removeItem("email")
-	})
-	const onSubmit = (data: INewPassword) => {
-		const email = sessionStorage.getItem("email")
+  const {
+    control,
+    handleSubmit,
+    formState: { isDirty, isValid, errors },
+  } = useForm<INewPassword>({
+    mode: "onChange",
+    resolver: yupResolver(NewPasswordScheme),
+  })
+  const { mutate, isPending } = useNewPasswordQuery(() => {
+    router.push("/companies")
+    sessionStorage.removeItem("email")
+  })
+  const onSubmit = (data: INewPassword) => {
+    const email = sessionStorage.getItem("email")
 
-		mutate({
-			login: email?.split("@")[0],
-			password: data?.password,
-			password_confirmation: data?.password_confirmation,
-			signup_token: SignupToken,
-		})
-	}
+    mutate({
+      login: email?.split("@")[0],
+      password: data?.password,
+      password_confirmation: data?.password_confirmation,
+      signup_token: SignupToken,
+    })
+  }
 
-	return (
-		<PublicRoute>
-			<Flex align={"center"} justify={"center"} h={"100vh"}>
-				<div className={s.card}>
-					<Text className={s.title}>Enter a new password</Text>
-					<Text className={s.subtitle}>
-						Enter the password and repeat it again
-					</Text>
+  return (
+    <PublicRoute>
+      <Flex align={"center"} justify={"center"} h={"100vh"}>
+        <div className={s.card}>
+          <Text className={s.title}>Enter a new password</Text>
+          <Text className={s.subtitle}>
+            Enter the password and repeat it again
+          </Text>
 
-					<form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-						<Controller
-							name={"password"}
-							control={control}
-							render={({ field }) => (
-								<Input
-									error={errors?.password?.message}
-									height={64}
-									label={"New password"}
-									type={"password"}
-									{...field}
-								/>
-							)}
-						/>
+          <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+            <Controller
+              name={"password"}
+              control={control}
+              render={({ field }) => (
+                <Input
+                  error={errors?.password?.message}
+                  height={64}
+                  label={"New password"}
+                  type={"password"}
+                  {...field}
+                />
+              )}
+            />
 
-						<Controller
-							name={"password_confirmation"}
-							control={control}
-							render={({ field }) => (
-								<Input
-									error={errors?.password_confirmation?.message}
-									mt={16}
-									height={64}
-									type={"password"}
-									label={"Repeat the password"}
-									{...field}
-								/>
-							)}
-						/>
+            <Controller
+              name={"password_confirmation"}
+              control={control}
+              render={({ field }) => (
+                <Input
+                  error={errors?.password_confirmation?.message}
+                  mt={16}
+                  height={64}
+                  type={"password"}
+                  label={"Repeat the password"}
+                  {...field}
+                />
+              )}
+            />
 
-						<Button
-							type={"submit"}
-							loading={isPending}
-							className={s.formBtn}
-							disabled={!isValid || !isDirty}
-						>
-							Continue
-						</Button>
-					</form>
-				</div>
-			</Flex>
-		</PublicRoute>
-	)
+            <Button
+              type={"submit"}
+              loading={isPending}
+              className={s.formBtn}
+              disabled={!isValid || !isDirty}
+            >
+              Continue
+            </Button>
+          </form>
+        </div>
+      </Flex>
+    </PublicRoute>
+  )
 }
 
 export default NewPassword

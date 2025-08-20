@@ -3,17 +3,17 @@ import dynamic from "next/dynamic"
 import React from "react"
 
 const PrivateRoute = dynamic(() => import("@/widgets/private-route"), {
-	ssr: false,
+  ssr: false,
 })
 
 const ProfilePage = () => {
-	return (
-		<>
-			<PrivateRoute>
-				<ResponsesList />
-			</PrivateRoute>
-		</>
-	)
+  return (
+    <>
+      <PrivateRoute>
+        <ResponsesList />
+      </PrivateRoute>
+    </>
+  )
 }
 
 export default ProfilePage

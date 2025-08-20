@@ -1,12 +1,12 @@
 .button {
-	color: #12b76a;
-	font-weight: 500;
+  color: #12b76a;
+  font-weight: 500;
 
-	&:hover {
-		color: #039855;
-	}
+  &:hover {
+    color: #039855;
+  }
 
-	&:disabled {
-		color: #d0d5dd;
-	}
+  &:disabled {
+    color: #d0d5dd;
+  }
 }

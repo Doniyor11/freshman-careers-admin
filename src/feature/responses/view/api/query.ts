@@ -5,10 +5,10 @@ import { apiKeys } from "@/shared/constants/api-keys.ts"
 import { getResponseViewApi } from "./index.ts"
 
 export const useGetResponseViewQuery = (id?: number) => {
-	return useQuery({
-		queryFn: () => getResponseViewApi(id),
-		queryKey: [apiKeys.responses, id],
-		select: (data) => data,
-		enabled: !!id,
-	})
+  return useQuery({
+    queryFn: () => getResponseViewApi(id),
+    queryKey: [apiKeys.responses, id],
+    select: (data) => data,
+    enabled: !!id,
+  })
 }

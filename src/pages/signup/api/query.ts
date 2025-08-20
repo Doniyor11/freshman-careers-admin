@@ -8,17 +8,17 @@ import { signUpApi } from "./index.ts"
 import { ISignUp } from "./types.ts"
 
 export const useSignUpQuery = (onSuccess: () => void) => {
-	return useMutation({
-		mutationFn: (data: ISignUp) => signUpApi(data),
-		onSuccess: (data) => {
-			const token = data.signup_token
-			if (token) {
-				Cookies.set(TOKEN.SIGNUP_TOKEN, token)
-				onSuccess && onSuccess()
-			}
-		},
-		onError: (err: any) => {
-			toast.error(err.detail)
-		},
-	})
+  return useMutation({
+    mutationFn: (data: ISignUp) => signUpApi(data),
+    onSuccess: (data) => {
+      const token = data.signup_token
+      if (token) {
+        Cookies.set(TOKEN.SIGNUP_TOKEN, token)
+        onSuccess && onSuccess()
+      }
+    },
+    onError: (err: any) => {
+      toast.error(err.detail)
+    },
+  })
 }

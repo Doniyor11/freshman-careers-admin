@@ -6,18 +6,18 @@ import s from "./styles.module.scss"
 import { IStyledButton } from "./types"
 
 export const LightButton: FC<IStyledButton> = ({
-	children,
-	className,
-	...props
+  children,
+  className,
+  ...props
 }) => {
-	return (
-		<Button
-			variant="light"
-			radius="8px"
-			className={cx(s.button, className)}
-			{...props}
-		>
-			{children}
-		</Button>
-	)
+  return (
+    <Button
+      variant="light"
+      radius="8px"
+      className={cx(s.button, className)}
+      {...props}
+    >
+      {children}
+    </Button>
+  )
 }
