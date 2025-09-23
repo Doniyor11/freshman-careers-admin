@@ -7,17 +7,17 @@ import { editCompanyApi } from "./index.ts"
 import { IEditCompany } from "./types.ts"
 
 export const useEditCompanyQuery = (onSuccess: () => void) => {
-	const queryClient = useQueryClient()
-	return useMutation({
-		mutationFn: (data: IEditCompany) => editCompanyApi(data),
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: [apiKeys.companies] })
-			toast.success("Company edited successfully!")
-			onSuccess && onSuccess()
-		},
-		onError: (data) => {
-			// @ts-ignore
-			toast.error(data?.detail)
-		},
-	})
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (data: IEditCompany) => editCompanyApi(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [apiKeys.companies] })
+      toast.success("Company edited successfully!")
+      onSuccess && onSuccess()
+    },
+    onError: (data) => {
+      // @ts-ignore
+      toast.error(data?.detail)
+    },
+  })
 }

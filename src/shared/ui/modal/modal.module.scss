@@ -2,29 +2,29 @@
 }
 
 .modalContent {
-	border-radius: 0.5rem;
-	background: #fff;
-	padding: 1.5rem;
-	@media screen and (max-width: 768px) {
-		padding: 1rem;
-	}
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 1.5rem;
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+  }
 }
 
 .modalBody {
-	padding: 2rem 3rem;
-	border-radius: 0.5rem;
-	border: 1px solid #e2eaff;
-	@media screen and (max-width: 768px) {
-		padding: 1rem;
-	}
+  padding: 2rem 3rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2eaff;
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+  }
 }
 
 .closeButton {
-	position: absolute;
-	top: 2rem;
-	right: 2rem;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
 
-	&:focus {
-		outline: none;
-	}
+  &:focus {
+    outline: none;
+  }
 }

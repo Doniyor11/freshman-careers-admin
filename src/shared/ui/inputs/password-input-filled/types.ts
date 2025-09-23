@@ -4,7 +4,7 @@ import { InputHTMLAttributes } from "react"
 type DefaultProps = PasswordInputProps & InputHTMLAttributes<HTMLInputElement>
 
 export interface IInputStyled extends DefaultProps {
-	className?: string
-	height?: string | number
-	error?: boolean
+  className?: string
+  height?: string | number
+  error?: boolean
 }

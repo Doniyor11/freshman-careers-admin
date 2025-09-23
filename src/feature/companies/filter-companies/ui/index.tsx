@@ -10,51 +10,51 @@ import { FilledButton } from "@/shared/ui/buttons"
 import s from "./filter.module.scss"
 
 export const FilterCompanies = () => {
-	const setCompanyAdd = useCompanyAddStore((s) => s.setCompanyAdd)
+  const setCompanyAdd = useCompanyAddStore((s) => s.setCompanyAdd)
 
-	const [search, availableInternships, setSearch, setAvailableInternships] =
-		useCompaniesFilterStore((s) => [
-			s.search,
-			s.availableInternships,
-			s.setSearch,
-			s.setAvailableInternships,
-		])
+  const [search, availableInternships, setSearch, setAvailableInternships] =
+    useCompaniesFilterStore((s) => [
+      s.search,
+      s.availableInternships,
+      s.setSearch,
+      s.setAvailableInternships,
+    ])
 
-	return (
-		<Box className={s.filterWrapper}>
-			<Box className={s.filterSearch}>
-				<Input
-					value={search}
-					leftSection={<Icon4 />}
-					className={"input-custom"}
-					placeholder={"Search for internships"}
-					onChange={(e) => setSearch(e.target.value)}
-				/>
-			</Box>
-			<Flex direction={"column"} gap={"2rem"}>
-				<BadgeGroup
-					label={"Available internships"}
-					options={[
-						"up to 10",
-						"11-20",
-						"21-50",
-						"51-100",
-						"101-200",
-						"200+",
-						"No available",
-					]}
-					value={availableInternships}
-					onChange={(e: any) => setAvailableInternships(e)}
-				/>
-			</Flex>
-			<FilledButton
-				fullWidth
-				h={"3rem"}
-				mt={"1.5rem"}
-				onClick={() => setCompanyAdd(true)}
-			>
-				Add a company
-			</FilledButton>
-		</Box>
-	)
+  return (
+    <Box className={s.filterWrapper}>
+      <Box className={s.filterSearch}>
+        <Input
+          value={search}
+          leftSection={<Icon4 />}
+          className={"input-custom"}
+          placeholder={"Search for internships"}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </Box>
+      <Flex direction={"column"} gap={"2rem"}>
+        <BadgeGroup
+          label={"Available internships"}
+          options={[
+            "up to 10",
+            "11-20",
+            "21-50",
+            "51-100",
+            "101-200",
+            "200+",
+            "No available",
+          ]}
+          value={availableInternships}
+          onChange={(e: any) => setAvailableInternships(e)}
+        />
+      </Flex>
+      <FilledButton
+        fullWidth
+        h={"3rem"}
+        mt={"1.5rem"}
+        onClick={() => setCompanyAdd(true)}
+      >
+        Add a company
+      </FilledButton>
+    </Box>
+  )
 }

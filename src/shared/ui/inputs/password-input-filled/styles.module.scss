@@ -1,23 +1,23 @@
 .input {
-	input {
-		border-radius: 8px;
-		border: 1px solid #e2eaff;
-		background: #fafbff;
-		font-size: 16px;
-		font-weight: 500;
-		line-height: 20px;
-		letter-spacing: -0.32px;
+  input {
+    border-radius: 8px;
+    border: 1px solid #e2eaff;
+    background: #fafbff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.32px;
 
-		&::placeholder {
-			color: #848f98;
-		}
-	}
+    &::placeholder {
+      color: #848f98;
+    }
+  }
 
-	.error {
-		color: #f00;
-	}
+  .error {
+    color: #f00;
+  }
 }
 
 .mantineInput {
-	border: none !important;
+  border: none !important;
 }

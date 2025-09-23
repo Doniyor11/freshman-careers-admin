@@ -8,31 +8,31 @@ import { Footer, Navbar } from "@/widgets"
 import { TOKEN } from "@/shared/constants/env.ts"
 
 const PrivateRoute = ({ children }: { children: ReactNode }) => {
-	const router = useRouter()
-	const token = Cookies.get(TOKEN.AUTH_TOKEN)
+  const router = useRouter()
+  const token = Cookies.get(TOKEN.AUTH_TOKEN)
 
-	useEffect(() => {
-		if (!token) {
-			Cookies.remove(TOKEN.AUTH_TOKEN)
-			router.push("/signin")
-		}
-	}, [token, router])
+  useEffect(() => {
+    if (!token) {
+      Cookies.remove(TOKEN.AUTH_TOKEN)
+      router.push("/signin")
+    }
+  }, [token, router])
 
-	if (!token) {
-		return (
-			<Center h={"40vh"}>
-				<Loader size={"xl"} color={"#004B84" as any} />
-			</Center>
-		)
-	}
+  if (!token) {
+    return (
+      <Center h={"40vh"}>
+        <Loader size={"xl"} color={"#004B84" as any} />
+      </Center>
+    )
+  }
 
-	return (
-		<>
-			<Navbar />
-			{children}
-			<Footer />
-		</>
-	)
+  return (
+    <>
+      <Navbar />
+      {children}
+      <Footer />
+    </>
+  )
 }
 
 export default PrivateRoute

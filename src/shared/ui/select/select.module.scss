@@ -1,32 +1,32 @@
 .select {
-	input {
-		border-radius: 0.5rem;
-		border: 1px solid #e2eaff;
-		background: #fafbff;
-		height: 3.5rem;
+  input {
+    border-radius: 0.5rem;
+    border: 1px solid #e2eaff;
+    background: #fafbff;
+    height: 3.5rem;
 
-		color: #000;
-		font-size: 20px;
-		font-weight: 500;
-		line-height: 24px;
-		letter-spacing: -0.4px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.4px;
 
-		&::placeholder {
-			color: #848f98;
-			font-size: 16px;
-			line-height: 20px;
-			letter-spacing: -0.32px;
-		}
-	}
+    &::placeholder {
+      color: #848f98;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: -0.32px;
+    }
+  }
 }
 
 .selectLabel {
-	color: #fff;
-	font-family: "Inter", sans-serif;
-	font-size: 1rem;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 1.25rem;
-	letter-spacing: -0.02rem;
-	margin-bottom: 0.5rem;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem;
+  letter-spacing: -0.02rem;
+  margin-bottom: 0.5rem;
 }

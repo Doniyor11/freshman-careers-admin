@@ -3,15 +3,15 @@ import dynamic from "next/dynamic"
 import React from "react"
 
 const PrivateRoute = dynamic(() => import("@/widgets/private-route"), {
-	ssr: false,
+  ssr: false,
 })
 
 const EditInternship = () => {
-	return (
-		<PrivateRoute>
-			<InternshipEdit />
-		</PrivateRoute>
-	)
+  return (
+    <PrivateRoute>
+      <InternshipEdit />
+    </PrivateRoute>
+  )
 }
 
 export default EditInternship

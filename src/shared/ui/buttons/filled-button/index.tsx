@@ -6,13 +6,13 @@ import s from "./styles.module.scss"
 import { IStyledButton } from "./types"
 
 export const FilledButton: FC<IStyledButton> = ({
-	children,
-	className,
-	...props
+  children,
+  className,
+  ...props
 }) => {
-	return (
-		<Button className={cx(s.button, className)} radius="8px" {...props}>
-			{children}
-		</Button>
-	)
+  return (
+    <Button className={cx(s.button, className)} radius="8px" {...props}>
+      {children}
+    </Button>
+  )
 }

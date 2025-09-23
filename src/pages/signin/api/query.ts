@@ -8,18 +8,18 @@ import { signInApi } from "./index.ts"
 import { ISignIn } from "./types.ts"
 
 export const useSignInQuery = (onSuccess: () => void) => {
-	return useMutation({
-		mutationFn: (data: ISignIn) => signInApi(data),
-		onSuccess: (data) => {
-			const token = data.access_token
-			if (token) {
-				Cookies.set(TOKEN.AUTH_TOKEN, token)
-				toast.success("Authorization successful")
-				onSuccess && onSuccess()
-			}
-		},
-		onError: (data: any) => {
-			toast.error(data?.detail)
-		},
-	})
+  return useMutation({
+    mutationFn: (data: ISignIn) => signInApi(data),
+    onSuccess: (data) => {
+      const token = data.access_token
+      if (token) {
+        Cookies.set(TOKEN.AUTH_TOKEN, token)
+        toast.success("Authorization successful")
+        onSuccess && onSuccess()
+      }
+    },
+    onError: (data: any) => {
+      toast.error(data?.detail)
+    },
+  })
 }

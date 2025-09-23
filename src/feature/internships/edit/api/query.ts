@@ -7,17 +7,17 @@ import { editInternshipApi } from "./index.ts"
 import { IEditInternships } from "./types.ts"
 
 export const useEditInternshipQuery = (onSuccess: () => void) => {
-	const queryClient = useQueryClient()
-	return useMutation({
-		mutationFn: (data: IEditInternships) => editInternshipApi(data),
-		onSuccess: () => {
-			queryClient.invalidateQueries({ queryKey: [apiKeys.internships] })
-			toast.success("Internship edited successfully!")
-			onSuccess && onSuccess()
-		},
-		onError: (data) => {
-			// @ts-ignore
-			toast.error(data?.detail)
-		},
-	})
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (data: IEditInternships) => editInternshipApi(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [apiKeys.internships] })
+      toast.success("Internship edited successfully!")
+      onSuccess && onSuccess()
+    },
+    onError: (data) => {
+      // @ts-ignore
+      toast.error(data?.detail)
+    },
+  })
 }
